@@ -11,7 +11,7 @@
             padding: 0;
             height: 100%;
             width: 100%;
-            overflow-x: hidden; /* Impede a rolagem horizontal */
+            overflow: auto; /* Permite rolagem na página inteira */
             display: flex;
             justify-content: center; /* Centraliza horizontalmente */
             align-items: center; /* Centraliza verticalmente */
@@ -27,7 +27,6 @@
             width: 100%;
             max-width: 1200px; /* Largura máxima da área do exercício */
             margin: 0 auto;
-            overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse a área */
             border-radius: 10px; /* Borda arredondada na área */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
         }
@@ -52,19 +51,20 @@
             z-index: 1;
             width: 90%; /* Limite para a largura da caixa de texto */
             max-height: 80%; /* Limita a altura da caixa */
-            overflow-y: auto; /* Permite rolagem se necessário */
-            padding: 20px; /* Espaço interno */
-        }
-
-        h3 {
-            color: #2c3e50;
-            font-size: 16px; /* Ajustado para caber melhor */
+            display: flex; /* Usado para alinhar exercícios e opções lado a lado */
         }
 
         .exercise-wrapper {
             display: flex;
             flex-direction: column;
-            margin-bottom: 20px;
+            flex-grow: 1; /* Permite que a área de exercícios ocupe o espaço restante */
+            margin-right: 20px; /* Espaçamento entre exercícios e opções */
+            overflow-y: auto; /* Permite rolagem se necessário */
+        }
+
+        h3 {
+            color: #2c3e50;
+            font-size: 16px; /* Ajustado para caber melhor */
         }
 
         .exercise-container {
@@ -95,9 +95,11 @@
         }
 
         .options-container {
-            width: 100%;
             display: flex;
             flex-direction: column;
+            flex-grow: 1; /* Permite que a área de opções ocupe o espaço restante */
+            max-height: 80%; /* Limita a altura da caixa */
+            overflow-y: auto; /* Permite rolagem se necessário */
         }
 
         .highlight {
@@ -168,8 +170,14 @@
             If you chose incorrectly, you will be able to reselect. The meaning of the needed phrasal verbs is in parentheses beside the empty box.
         </h3>
 
-        <div id="exercise-wrapper">
-            <!-- Exercícios serão gerados aqui -->
+        <div class="exercise-wrapper">
+            <div id="exercise-wrapper">
+                <!-- Exercícios serão gerados aqui -->
+            </div>
+        </div>
+
+        <div class="options-container">
+            <!-- Opções de resposta serão geradas aqui -->
         </div>
     </div>
 </div>
@@ -212,25 +220,20 @@
             exerciseContainer.appendChild(phraseDiv);
         });
 
-        const optionsContainer = document.createElement('div');
-        optionsContainer.className = 'options-container';
+        exerciseWrapper.appendChild(exerciseContainer);
+
+        const optionsContainer = document.querySelector('.options-container');
+        optionsContainer.innerHTML = ''; // Limpa opções anteriores
 
         allOptions.forEach((option, i) => {
-            const span = document.createElement('span');
+            const span = document.createElement('div');
             span.className = 'option';
-            span.textContent = option;
-            span.draggable = true;
             span.id = `option${i}`;
+            span.draggable = true;
             span.ondragstart = drag;
+            span.textContent = option;
             optionsContainer.appendChild(span);
         });
-
-        const wrapper = document.createElement('div');
-        wrapper.className = 'exercise-wrapper';
-        wrapper.appendChild(exerciseContainer);
-        wrapper.appendChild(optionsContainer);
-
-        exerciseWrapper.appendChild(wrapper);
     }
 
     function allowDrop(ev) {
