@@ -40,15 +40,17 @@
 
         .container {
             width: 80%;
-            max-width: 800px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            padding: 40px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: left;
-            position: relative; /* Mude de absolute para relative */
-            margin-top: 20px; /* Adicione um espaço acima */
-            z-index: 1;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    position: absolute; /* Mantenha como absolute para sobrepor a imagem */
+    top: 40%; /* Ajuste a posição vertical conforme necessário */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza na horizontal e vertical */
+    z-index: 1;
         }
 
         h3 {
