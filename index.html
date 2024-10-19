@@ -9,62 +9,60 @@
         body, html {
             margin: 0;
             padding: 0;
-            height: 100%;
+            height: auto;
             width: 100%;
-            overflow: auto; /* Permite rolagem na página inteira */
+            overflow-x: hidden;
             display: flex;
-            justify-content: center; /* Centraliza horizontalmente */
-            align-items: center; /* Centraliza verticalmente */
             flex-direction: column;
+            align-items: center;
         }
 
         body {
             font-family: 'Roboto', sans-serif;
         }
 
-        .exercise-area {
-            position: relative;
+        .image-table {
             width: 100%;
-            max-width: 1200px; /* Largura máxima da área do exercício */
-            margin: 0 auto;
-            border-radius: 10px; /* Borda arredondada na área */
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+            max-width: 1200px;
+            margin-bottom: 0;
+            border-collapse: collapse;
+        }
+
+        .image-cell {
+            position: relative;
         }
 
         .image-cell img {
             width: 100%;
-            height: auto; /* Mantém a proporção da imagem */
-            border-radius: 10px; /* Borda arredondada */
-            display: block; /* Remove espaços indesejados em baixo */
+            height: auto;
+            border-radius: 10px;
         }
 
         .container {
+            width: 80%;
+            max-width: 800px;
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
-            padding: 20px; /* Diminuído para caber melhor na tela */
+            padding: 40px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: left;
-            position: absolute; /* Para sobrepor a imagem */
-            top: 50%; /* Centraliza verticalmente */
+            position: absolute;
+            top: 30%;
             left: 50%;
-            transform: translate(-50%, -50%); /* Centraliza na horizontal e vertical */
+            transform: translate(-50%, -50%);
+            position: relative; /* Mude de absolute para relative */
+            margin-top: 20px; /* Adicione um espaço acima */
             z-index: 1;
-            width: 90%; /* Limite para a largura da caixa de texto */
-            max-height: 80%; /* Limita a altura da caixa */
-            display: flex; /* Usado para alinhar exercícios e opções lado a lado */
-        }
-
-        .exercise-wrapper {
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1; /* Permite que a área de exercícios ocupe o espaço restante */
-            margin-right: 20px; /* Espaçamento entre exercícios e opções */
-            overflow-y: auto; /* Permite rolagem se necessário */
         }
 
         h3 {
             color: #2c3e50;
-            font-size: 16px; /* Ajustado para caber melhor */
+        }
+
+        .exercise-wrapper {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
         }
 
         .exercise-container {
@@ -91,15 +89,13 @@
             color: #3498db;
             margin: 0 5px;
             font-size: 14px;
-            position: relative;
+            position: relative; /* Para facilitar a colocação do X */
         }
 
         .options-container {
+            width: 100%;
             display: flex;
             flex-direction: column;
-            flex-grow: 1; /* Permite que a área de opções ocupe o espaço restante */
-            max-height: 80%; /* Limita a altura da caixa */
-            overflow-y: auto; /* Permite rolagem se necessário */
         }
 
         .highlight {
@@ -134,20 +130,20 @@
 
         .incorrect .remove-btn {
             position: absolute;
-            right: -5px;
-            top: 2px;
+            right: -5px; /* Ajustado para que o X não fique cortado */
+            top: 2px; /* Ajustado para que o X fique visível */
             background-color: #fff;
             border: 1px solid #f08080;
             color: #f08080;
             border-radius: 50%;
             cursor: pointer;
-            width: 15px;
-            height: 15px;
+            width: 15px; /* Mantido pequeno */
+            height: 15px; /* Mantido pequeno */
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 10px;
+            font-size: 10px; /* Reduzido o tamanho da fonte */
         }
 
         .remove-btn:hover {
@@ -158,44 +154,41 @@
 </head>
 <body>
 
-<div class="exercise-area">
-    <div class="image-cell">
-        <img src="SEB-Word-with-logo.jpg" alt="Imagem de Fundo"> <!-- Substitua pela URL da sua imagem -->
-    </div>
+<table class="image-table">
+    <tr>
+        <td class="image-cell">
+            <img src="SEB-Word-with-logo.jpg" alt="Imagem de Fundo"> <!-- Substitua pela URL da sua imagem -->
+        </td>
+    </tr>
+</table>
 
-    <div class="container">
-        <h3>Understanding and using English phrasal verbs will help you improve your fluency. This exercise is designed for that purpose. 
-            “Drag and drop” the correct word (some of these sentences require two separate words) to complete every sentence. 
-            <span class="highlight">Don’t worry if you select the wrong word(s)!</span> This exercise will immediately let you know if your chose the correct or incorrect words. 
-            If you chose incorrectly, you will be able to reselect. The meaning of the needed phrasal verbs is in parentheses beside the empty box.
+<div class="container">
+    <h3>Understanding and using English phrasal verbs will help you improve your fluency. This exercise is designed for that purpose. 
+        “Drag and drop” the correct word (some of these sentences require two separate words) to complete every sentence. 
+        <span class="highlight">Don’t worry if you select the wrong word(s)!</span> This exercise will immediately let you know if your chose the correct or incorrect words. 
+        If you chose incorrectly, you will be able to reselect. The meaning of the needed phrasal verbs is in parentheses beside the empty box.
         </h3>
 
-        <div class="exercise-wrapper">
-            <div id="exercise-wrapper">
-                <!-- Exercícios serão gerados aqui -->
-            </div>
-        </div>
-
-        <div class="options-container">
-            <!-- Opções de resposta serão geradas aqui -->
-        </div>
+    <div id="exercise-wrapper">
+        <!-- Exercícios serão gerados aqui -->
     </div>
 </div>
 
 <script>
     const exercises = [
-        { phrase: "1. Many parents do not know how to bring ____ (raise) their children. ", answers: ["up"] },
-        { phrase: "2. The town council members stormed ____ (departed) over plans for the new supermarket.", answers: ["out"] },
-        { phrase: "3. Some company owners refuse to face ____ ____ (accept unpleasant results) their corporate responsibilities, causing negative results.", answers: ["up", "to"] },
-        { phrase: "4. Yesterday, we had to call ____ (stop something) our family get together.", answers: ["off"] },
-        { phrase: "5. He can always count ____ (depend) his best friend when he needs him.", answers: ["on"] },
-        { phrase: "6. Many under-developed nations fail to catch ____ (get the same results) with their more developed neighbors.", answers: ["up"] },
-        { phrase: "7. As the wind dies ____, (gets weaker) it starts to feel hotter.", answers: ["down"] },
-        { phrase: "8. Too many students drop ____ ____ (leave) school every year.", answers: ["out", "of"] },
-        { phrase: "9. Some politicians can't figure ____ (unable to understand) why they are disliked.", answers: ["out"] },
-        { phrase: "10. You can find ____ (discover) so much information on the Internet.", answers: ["out"] },
-        { phrase: "11. As we grow ____ (mature), our priorities change.", answers: ["up"] },
-        { phrase: "12. Students are required to hand ____ (submit) their homework tomorrow.", answers: ["in"] }
+        { phrase: "1. Many parents do not  know how to bring ____ (raise) their children. ", answers: ["up"] },
+        { phrase: "2.  The town council members stormed ____ (departed) over plans for the new supermarket.", answers: ["out"] },
+        { phrase: "3. Some company owners refuse to face ____ ____ (accept unpleasant results) their corporate responsibilities, causing negative results.", answers: ["up", "to"] },
+        { phrase: "4. Yesterday, we had to call ____ (stop something) our family get together.", answers: ["off"] },
+        { phrase: "5. He can always count ____ (depend) his best friend when he needs him.", answers: ["on"] },
+        { phrase: "6. Many under-developed nations fail to catch ____ (get the same results) with their more developed neighbors.", answers: ["up"] },
+        { phrase: "7. As the wind dies ____, (gets weaker) it starts to feel hotter.", answers: ["down"] },
+        { phrase: "8. Too many students drop ____ ____ (leave) school every year.", answers: ["out", "of"] },
+        { phrase: "9. Some politicians can't figure ____ (unable to understand) why they are disliked.", answers: ["out"] },
+        { phrase: "10. You can find ____ (discover) so much information on the Internet.", answers: ["out"] },
+        { phrase: "11.  As we grow ____ (mature), our priorities change.", answers: ["up"] },
+        { phrase: "12. Students are required to hand XXXX____ (submit) their homework tomorrow.", answers: ["in"] }
+        { phrase: "12. Students are required to hand ____ (submit) their homework tomorrow.", answers: ["in"] }
     ];
 
     let allOptions = exercises.flatMap(ex => ex.answers);
@@ -220,20 +213,25 @@
             exerciseContainer.appendChild(phraseDiv);
         });
 
-        exerciseWrapper.appendChild(exerciseContainer);
-
-        const optionsContainer = document.querySelector('.options-container');
-        optionsContainer.innerHTML = ''; // Limpa opções anteriores
+        const optionsContainer = document.createElement('div');
+        optionsContainer.className = 'options-container';
 
         allOptions.forEach((option, i) => {
-            const span = document.createElement('div');
+            const span = document.createElement('span');
             span.className = 'option';
-            span.id = `option${i}`;
-            span.draggable = true;
-            span.ondragstart = drag;
             span.textContent = option;
+            span.draggable = true;
+            span.id = `option${i}`;
+            span.ondragstart = drag;
             optionsContainer.appendChild(span);
         });
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'exercise-wrapper';
+        wrapper.appendChild(exerciseContainer);
+        wrapper.appendChild(optionsContainer);
+
+        exerciseWrapper.appendChild(wrapper);
     }
 
     function allowDrop(ev) {
@@ -246,33 +244,39 @@
 
     function drop(ev, correctAnswer) {
         ev.preventDefault();
-        const data = ev.dataTransfer.getData("text");
-        const selectedOption = document.getElementById(data).textContent;
-
-        const dropbox = ev.target;
+        var data = ev.dataTransfer.getData("text");
+        var selectedOption = document.getElementById(data).textContent;
+        var dropbox = ev.target;
 
         if (selectedOption === correctAnswer) {
             dropbox.textContent = selectedOption;
             dropbox.className = 'dropbox correct';
-            document.getElementById(data).classList.add('correct');
+            document.getElementById(data).remove(); // Remove a opção correta da lista
         } else {
             dropbox.textContent = selectedOption;
             dropbox.className = 'dropbox incorrect';
-            document.getElementById(data).classList.add('incorrect');
-            const removeBtn = document.createElement('div');
+            document.getElementById(data).remove(); // Remove a opção incorreta também
+            const removeBtn = document.createElement('span');
             removeBtn.className = 'remove-btn';
-            removeBtn.textContent = 'X';
+            removeBtn.innerHTML = 'X';
             removeBtn.onclick = function() {
-                dropbox.textContent = '';
+                dropbox.textContent = '____';
                 dropbox.className = 'dropbox';
-                document.getElementById(data).classList.remove('incorrect');
+                const optionSpan = document.createElement('span');
+                optionSpan.className = 'option';
+                optionSpan.textContent = selectedOption;
+                optionSpan.draggable = true;
+                optionSpan.id = data;
+                optionSpan.ondragstart = drag;
+                document.querySelector('.options-container').appendChild(optionSpan);
                 dropbox.removeChild(removeBtn);
             };
             dropbox.appendChild(removeBtn);
         }
     }
 
-    window.onload = generateExercises;
+    generateExercises();
 </script>
+
 </body>
 </html>
