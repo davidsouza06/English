@@ -9,7 +9,7 @@
         body, html {
             margin: 0;
             padding: 0;
-            height: auto; /* Permite que o corpo se expanda com o conteúdo */
+            height: auto;
             width: 100%;
             overflow-x: hidden;
             display: flex;
@@ -21,38 +21,36 @@
             font-family: 'Roboto', sans-serif;
         }
 
-        /* Estilo da tabela que contém a imagem */
         .image-table {
             width: 100%;
-            max-width: 1200px; /* Limite de largura da tabela */
-            margin-bottom: 0; /* Espaço entre a tabela e o conteúdo abaixo */
-            border-collapse: collapse; /* Para não ter espaço entre as bordas das células */
+            max-width: 1200px;
+            margin-bottom: 0;
+            border-collapse: collapse;
         }
 
         .image-cell {
-            position: relative; /* Para posicionar os exercícios sobre a imagem */
+            position: relative;
         }
 
         .image-cell img {
-            width: 100%; /* Faz a imagem preencher a célula */
-            height: auto; /* Mantém a proporção da imagem */
-            border-radius: 10px; /* Arredondar as bordas da imagem */
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
         }
 
-        /* Conteúdo dos exercícios que sobrepõe a imagem */
         .container {
-            width: 80%; /* Ajuste a largura da "caixa" de exercícios aqui */
-            max-width: 800px; /* Limite de largura */
-            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com transparência */
+            width: 80%;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             padding: 40px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: left; /* Alinhamento à esquerda do texto */
-            position: absolute; /* Posicionamento absoluto */
-            top: 30%; /* Ajuste a posição vertical para que fique sobre a imagem */
-            left: 50%; /* Centraliza horizontalmente */
-            transform: translate(-50%, -50%); /* Move o container para cima para alinhar com a imagem */
-            z-index: 1; /* Para garantir que fique acima da imagem */
+            text-align: left;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
         }
 
         h3 {
@@ -66,12 +64,12 @@
         }
 
         .exercise-container {
-            width: 100%; /* A largura interna dos exercícios será 100% */
-            margin: 0 auto; /* Centraliza a container dos exercícios */
+            width: 100%;
+            margin: 0 auto;
         }
 
         .phrase {
-            font-size: 16px; /* Tamanho da fonte dos exercícios */
+            font-size: 16px;
             margin-bottom: 20px;
             white-space: nowrap;
             overflow: hidden;
@@ -80,7 +78,7 @@
 
         .dropbox {
             border: 2px dashed #3498db;
-            width: 80px; /* Diminuindo a largura da caixa de opções */
+            width: 80px;
             height: 30px;
             text-align: center;
             line-height: 30px;
@@ -88,25 +86,25 @@
             font-weight: bold;
             color: #3498db;
             margin: 0 5px;
-            font-size: 14px; /* Tamanho da fonte dentro das caixas */
+            font-size: 14px;
         }
 
         .options-container {
-            width: 100%; /* A largura interna das opções será 100% */
+            width: 100%;
             display: flex;
             flex-direction: column;
         }
 
         .option {
-            margin: 8px; /* Ajustou a margem para opções */
-            padding: 8px; /* Ajustou o padding para opções */
+            margin: 8px;
+            padding: 8px;
             background-color: #3498db;
             color: white;
             border-radius: 5px;
             cursor: pointer;
             text-align: center;
             font-weight: bold;
-            font-size: 14px; /* Diminuiu o tamanho da fonte das opções */
+            font-size: 14px;
         }
 
         .option:hover {
@@ -150,7 +148,7 @@
 <table class="image-table">
     <tr>
         <td class="image-cell">
-            <img src="./SEB-Word-with-logo.jpg" alt="Imagem de Fundo"> <!-- Substitua pela URL da sua imagem -->
+            <img src="SEB-Word-with-logo.jpg" alt="Imagem de Fundo"> <!-- Substitua pela URL da sua imagem -->
         </td>
     </tr>
 </table>
