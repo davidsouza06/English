@@ -11,10 +11,11 @@
             padding: 0;
             height: 100%;
             width: 100%;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Impede a rolagem horizontal */
             display: flex;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
             flex-direction: column;
-            align-items: center;
         }
 
         body {
@@ -24,22 +25,17 @@
         .exercise-area {
             position: relative;
             width: 100%;
-            max-width: 1200px;
+            max-width: 1200px; /* Largura máxima da área do exercício */
             margin: 0 auto;
             overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse a área */
-        }
-
-        .image-table {
-            width: 100%;
-            height: auto; /* Permite que a imagem mantenha a proporção */
-            margin: 0;
-            border-collapse: collapse;
+            border-radius: 10px; /* Borda arredondada na área */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
         }
 
         .image-cell img {
             width: 100%;
             height: auto; /* Mantém a proporção da imagem */
-            border-radius: 10px;
+            border-radius: 10px; /* Borda arredondada */
             display: block; /* Remove espaços indesejados em baixo */
         }
 
@@ -54,9 +50,10 @@
             left: 50%;
             transform: translate(-50%, -50%); /* Centraliza na horizontal e vertical */
             z-index: 1;
-            max-width: 90%; /* Limite para a largura da caixa de texto */
-            overflow-y: auto; /* Permite rolagem se necessário */
+            width: 90%; /* Limite para a largura da caixa de texto */
             max-height: 80%; /* Limita a altura da caixa */
+            overflow-y: auto; /* Permite rolagem se necessário */
+            padding: 20px; /* Espaço interno */
         }
 
         h3 {
@@ -160,13 +157,9 @@
 <body>
 
 <div class="exercise-area">
-    <table class="image-table">
-        <tr>
-            <td class="image-cell">
-                <img src="SEB-Word-with-logo.jpg" alt="Imagem de Fundo"> <!-- Substitua pela URL da sua imagem -->
-            </td>
-        </tr>
-    </table>
+    <div class="image-cell">
+        <img src="SEB-Word-with-logo.jpg" alt="Imagem de Fundo"> <!-- Substitua pela URL da sua imagem -->
+    </div>
 
     <div class="container">
         <h3>Understanding and using English phrasal verbs will help you improve your fluency. This exercise is designed for that purpose. 
