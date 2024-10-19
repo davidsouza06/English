@@ -9,7 +9,6 @@
         body, html {
             margin: 0;
             padding: 0;
-            height: auto;
             width: 100%;
             overflow-x: hidden;
             display: flex;
@@ -21,6 +20,7 @@
             font-family: 'Roboto', sans-serif;
         }
 
+        /* Estilo da tabela que contém a imagem */
         .image-table {
             width: 100%;
             max-width: 1200px;
@@ -38,16 +38,17 @@
             border-radius: 10px;
         }
 
+        /* Conteúdo dos exercícios que sobrepõe a imagem */
         .container {
-            width: 80%;
+            width: 90%; /* Largura menor para mobile */
             max-width: 800px;
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
-            padding: 40px;
+            padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: left;
             position: absolute;
-            top: 30%;
+            top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 1;
@@ -55,17 +56,17 @@
 
         h3 {
             color: #2c3e50;
+            font-size: 20px;
         }
 
         .exercise-wrapper {
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
-            margin-bottom: 20px;
         }
 
         .exercise-container {
             width: 100%;
-            margin: 0 auto;
         }
 
         .phrase {
@@ -92,7 +93,8 @@
         .options-container {
             width: 100%;
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .option {
@@ -105,6 +107,8 @@
             text-align: center;
             font-weight: bold;
             font-size: 14px;
+            flex-basis: calc(33.333% - 16px); /* Tamanho adaptável a várias telas */
+            max-width: 100px;
         }
 
         .option:hover {
@@ -140,6 +144,32 @@
         .remove-btn:hover {
             background-color: #f08080;
             color: #fff;
+        }
+
+        /* Media query para telas menores */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+                top: 55%; /* Ajusta a altura para dispositivos móveis */
+            }
+
+            .phrase {
+                font-size: 14px;
+            }
+
+            .dropbox {
+                width: 60px;
+                height: 25px;
+                font-size: 12px;
+                line-height: 25px;
+            }
+
+            .option {
+                flex-basis: calc(50% - 16px); /* Reduz o tamanho das opções no mobile */
+                max-width: 100px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
