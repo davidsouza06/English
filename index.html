@@ -248,3 +248,35 @@
         ev.dataTransfer.setData("text", ev.target.id);
     }
 
+    function drop(ev, correctAnswer) {
+        ev.preventDefault();
+        const data = ev.dataTransfer.getData("text");
+        const selectedOption = document.getElementById(data).textContent;
+
+        const dropbox = ev.target;
+
+        if (selectedOption === correctAnswer) {
+            dropbox.textContent = selectedOption;
+            dropbox.className = 'dropbox correct';
+            document.getElementById(data).classList.add('correct');
+        } else {
+            dropbox.textContent = selectedOption;
+            dropbox.className = 'dropbox incorrect';
+            document.getElementById(data).classList.add('incorrect');
+            const removeBtn = document.createElement('div');
+            removeBtn.className = 'remove-btn';
+            removeBtn.textContent = 'X';
+            removeBtn.onclick = function() {
+                dropbox.textContent = '';
+                dropbox.className = 'dropbox';
+                document.getElementById(data).classList.remove('incorrect');
+                dropbox.removeChild(removeBtn);
+            };
+            dropbox.appendChild(removeBtn);
+        }
+    }
+
+    window.onload = generateExercises;
+</script>
+</body>
+</html>
