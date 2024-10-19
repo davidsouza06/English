@@ -21,15 +21,17 @@
             font-family: 'Roboto', sans-serif;
         }
 
-        .image-table {
+        .exercise-area {
+            position: relative; /* Faz a posição relativa do contêiner */
             width: 100%;
-            max-width: 1200px;
-            margin-bottom: 0;
-            border-collapse: collapse;
+            max-width: 1200px; /* Limite de largura */
+            margin: 0 auto; /* Centraliza horizontalmente */
         }
 
-        .image-cell {
-            position: relative;
+        .image-table {
+            width: 100%;
+            margin-bottom: 0;
+            border-collapse: collapse;
         }
 
         .image-cell img {
@@ -39,18 +41,16 @@
         }
 
         .container {
-            width: 80%;
-    max-width: 800px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 10px;
-    padding: 40px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: left;
-    position: absolute; /* Mantenha como absolute para sobrepor a imagem */
-    top: 40%; /* Ajuste a posição vertical conforme necessário */
-    left: 50%;
-    transform: translate(-50%, -50%); /* Centraliza na horizontal e vertical */
-    z-index: 1;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            position: absolute; /* Para sobrepor a imagem */
+            top: 20%; /* Ajuste conforme necessário */
+            left: 50%;
+            transform: translate(-50%, -50%); /* Centraliza na horizontal e vertical */
+            z-index: 1;
         }
 
         h3 {
@@ -152,30 +152,32 @@
 </head>
 <body>
 
-<table class="image-table">
-    <tr>
-        <td class="image-cell">
-            <img src="SEB-Word-with-logo.jpg" alt="Imagem de Fundo"> <!-- Substitua pela URL da sua imagem -->
-        </td>
-    </tr>
-</table>
+<div class="exercise-area">
+    <table class="image-table">
+        <tr>
+            <td class="image-cell">
+                <img src="SEB-Word-with-logo.jpg" alt="Imagem de Fundo"> <!-- Substitua pela URL da sua imagem -->
+            </td>
+        </tr>
+    </table>
 
-<div class="container">
-    <h3>Understanding and using English phrasal verbs will help you improve your fluency. This exercise is designed for that purpose. 
-        “Drag and drop” the correct word (some of these sentences require two separate words) to complete every sentence. 
-        <span class="highlight">Don’t worry if you select the wrong word(s)!</span> This exercise will immediately let you know if your chose the correct or incorrect words. 
-        If you chose incorrectly, you will be able to reselect. The meaning of the needed phrasal verbs is in parentheses beside the empty box.
+    <div class="container">
+        <h3>Understanding and using English phrasal verbs will help you improve your fluency. This exercise is designed for that purpose. 
+            “Drag and drop” the correct word (some of these sentences require two separate words) to complete every sentence. 
+            <span class="highlight">Don’t worry if you select the wrong word(s)!</span> This exercise will immediately let you know if your chose the correct or incorrect words. 
+            If you chose incorrectly, you will be able to reselect. The meaning of the needed phrasal verbs is in parentheses beside the empty box.
         </h3>
 
-    <div id="exercise-wrapper">
-        <!-- Exercícios serão gerados aqui -->
+        <div id="exercise-wrapper">
+            <!-- Exercícios serão gerados aqui -->
+        </div>
     </div>
 </div>
 
 <script>
     const exercises = [
-        { phrase: "1. Many parents do not  know how to bring ____ (raise) their children. ", answers: ["up"] },
-        { phrase: "2.  The town council members stormed ____ (departed) over plans for the new supermarket.", answers: ["out"] },
+        { phrase: "1. Many parents do not know how to bring ____ (raise) their children. ", answers: ["up"] },
+        { phrase: "2. The town council members stormed ____ (departed) over plans for the new supermarket.", answers: ["out"] },
         { phrase: "3. Some company owners refuse to face ____ ____ (accept unpleasant results) their corporate responsibilities, causing negative results.", answers: ["up", "to"] },
         { phrase: "4. Yesterday, we had to call ____ (stop something) our family get together.", answers: ["off"] },
         { phrase: "5. He can always count ____ (depend) his best friend when he needs him.", answers: ["on"] },
@@ -184,7 +186,7 @@
         { phrase: "8. Too many students drop ____ ____ (leave) school every year.", answers: ["out", "of"] },
         { phrase: "9. Some politicians can't figure ____ (unable to understand) why they are disliked.", answers: ["out"] },
         { phrase: "10. You can find ____ (discover) so much information on the Internet.", answers: ["out"] },
-        { phrase: "11.  As we grow ____ (mature), our priorities change.", answers: ["up"] },
+        { phrase: "11. As we grow ____ (mature), our priorities change.", answers: ["up"] },
         { phrase: "12. Students are required to hand ____ (submit) their homework tomorrow.", answers: ["in"] }
     ];
 
@@ -248,32 +250,25 @@
         if (selectedOption === correctAnswer) {
             dropbox.textContent = selectedOption;
             dropbox.className = 'dropbox correct';
-            document.getElementById(data).remove(); // Remove a opção correta da lista
+            document.getElementById(data).classList.add('correct');
         } else {
             dropbox.textContent = selectedOption;
             dropbox.className = 'dropbox incorrect';
-            document.getElementById(data).remove(); // Remove a opção incorreta também
-            const removeBtn = document.createElement('span');
+            document.getElementById(data).classList.add('incorrect');
+            const removeBtn = document.createElement('div');
             removeBtn.className = 'remove-btn';
-            removeBtn.innerHTML = 'X';
+            removeBtn.textContent = 'X';
             removeBtn.onclick = function() {
-                dropbox.textContent = '____';
+                dropbox.textContent = '';
                 dropbox.className = 'dropbox';
-                const optionSpan = document.createElement('span');
-                optionSpan.className = 'option';
-                optionSpan.textContent = selectedOption;
-                optionSpan.draggable = true;
-                optionSpan.id = data;
-                optionSpan.ondragstart = drag;
-                document.querySelector('.options-container').appendChild(optionSpan);
+                document.getElementById(data).classList.remove('incorrect');
                 dropbox.removeChild(removeBtn);
             };
             dropbox.appendChild(removeBtn);
         }
     }
 
-    generateExercises();
+    window.onload = generateExercises;
 </script>
-
 </body>
 </html>
