@@ -9,7 +9,7 @@
         body, html {
             margin: 0;
             padding: 0;
-            height: auto;
+            height: 100%;
             width: 100%;
             overflow-x: hidden;
             display: flex;
@@ -22,44 +22,51 @@
         }
 
         .exercise-area {
-            position: relative; /* Faz a posição relativa do contêiner */
+            position: relative;
             width: 100%;
-            max-width: 1200px; /* Limite de largura */
-            margin: 0 auto; /* Centraliza horizontalmente */
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse a área */
         }
 
         .image-table {
             width: 100%;
-            margin-bottom: 0;
+            height: auto; /* Permite que a imagem mantenha a proporção */
+            margin: 0;
             border-collapse: collapse;
         }
 
         .image-cell img {
             width: 100%;
-            height: auto;
+            height: auto; /* Mantém a proporção da imagem */
             border-radius: 10px;
+            display: block; /* Remove espaços indesejados em baixo */
         }
 
         .container {
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
-            padding: 40px;
+            padding: 20px; /* Diminuído para caber melhor na tela */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: left;
             position: absolute; /* Para sobrepor a imagem */
-            top: 20%; /* Ajuste conforme necessário */
+            top: 50%; /* Centraliza verticalmente */
             left: 50%;
             transform: translate(-50%, -50%); /* Centraliza na horizontal e vertical */
             z-index: 1;
+            max-width: 90%; /* Limite para a largura da caixa de texto */
+            overflow-y: auto; /* Permite rolagem se necessário */
+            max-height: 80%; /* Limita a altura da caixa */
         }
 
         h3 {
             color: #2c3e50;
+            font-size: 16px; /* Ajustado para caber melhor */
         }
 
         .exercise-wrapper {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             margin-bottom: 20px;
         }
 
@@ -87,7 +94,7 @@
             color: #3498db;
             margin: 0 5px;
             font-size: 14px;
-            position: relative; /* Para facilitar a colocação do X */
+            position: relative;
         }
 
         .options-container {
@@ -128,20 +135,20 @@
 
         .incorrect .remove-btn {
             position: absolute;
-            right: -5px; /* Ajustado para que o X não fique cortado */
-            top: 2px; /* Ajustado para que o X fique visível */
+            right: -5px;
+            top: 2px;
             background-color: #fff;
             border: 1px solid #f08080;
             color: #f08080;
             border-radius: 50%;
             cursor: pointer;
-            width: 15px; /* Mantido pequeno */
-            height: 15px; /* Mantido pequeno */
+            width: 15px;
+            height: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 10px; /* Reduzido o tamanho da fonte */
+            font-size: 10px;
         }
 
         .remove-btn:hover {
@@ -241,34 +248,3 @@
         ev.dataTransfer.setData("text", ev.target.id);
     }
 
-    function drop(ev, correctAnswer) {
-        ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
-        var selectedOption = document.getElementById(data).textContent;
-        var dropbox = ev.target;
-
-        if (selectedOption === correctAnswer) {
-            dropbox.textContent = selectedOption;
-            dropbox.className = 'dropbox correct';
-            document.getElementById(data).classList.add('correct');
-        } else {
-            dropbox.textContent = selectedOption;
-            dropbox.className = 'dropbox incorrect';
-            document.getElementById(data).classList.add('incorrect');
-            const removeBtn = document.createElement('div');
-            removeBtn.className = 'remove-btn';
-            removeBtn.textContent = 'X';
-            removeBtn.onclick = function() {
-                dropbox.textContent = '';
-                dropbox.className = 'dropbox';
-                document.getElementById(data).classList.remove('incorrect');
-                dropbox.removeChild(removeBtn);
-            };
-            dropbox.appendChild(removeBtn);
-        }
-    }
-
-    window.onload = generateExercises;
-</script>
-</body>
-</html>
