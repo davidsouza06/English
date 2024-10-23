@@ -9,12 +9,12 @@
         body, html {
             margin: 0;
             padding: 0;
-            height: auto;
+            height: 100%;
             width: 100%;
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: center; /* Centraliza horizontalmente */
         }
 
         body {
@@ -23,9 +23,7 @@
 
         .image-table {
             width: 100%;
-            max-width: 1200px;
-            margin-bottom: 0;
-            border-collapse: collapse;
+            margin: 0;
         }
 
         .image-cell {
@@ -39,18 +37,16 @@
         }
 
         .container {
-            width: 80%;
-            max-width: 800px;
+            width: 100%; /* Aumentado para ocupar mais espaço */
+            max-width: 1500px;
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
-            padding: 40px;
+            padding: 20px; /* Reduzido para aproximar mais os exercícios */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: left;
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            margin-top: -2300px; /* Ajuste este valor para mover os exercícios para cima */
             z-index: 1;
+            position: relative; /* Mantém a posição relativa para sobreposição */
         }
 
         h3 {
@@ -59,13 +55,16 @@
 
         .exercise-wrapper {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start; /* Alinha os exercícios à esquerda */
             margin-bottom: 20px;
+            align-items: flex-start; /* Alinha os itens no topo */
         }
 
         .exercise-container {
-            width: 100%;
+            width: 70%; /* Aumentado para ocupar mais espaço */
             margin: 0 auto;
+            display: flex;
+            flex-direction: column; /* Mantém os exercícios em coluna */
         }
 
         .phrase {
@@ -91,9 +90,11 @@
         }
 
         .options-container {
-            width: 100%;
+            width: 25%; /* Definido como 25% para caber ao lado dos exercícios */
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* Muda para coluna para alinhar as opções uma embaixo da outra */
+            align-items: flex-end; /* Alinha as opções à direita */
+            margin-left: 20px; /* Espaço entre exercícios e opções */
         }
 
         .highlight {
@@ -102,7 +103,7 @@
         }
 
         .option {
-            margin: 8px;
+            margin: 8px 0; /* Espaço entre as opções */
             padding: 8px;
             background-color: #3498db;
             color: white;
@@ -155,7 +156,7 @@
 <table class="image-table">
     <tr>
         <td class="image-cell">
-            <img src="SEB-Word-with-logo.jpg" alt="Imagem de Fundo"> <!-- Substitua pela URL da sua imagem -->
+            <img src="C:/Users/David/Downloads/SEB-Word-with-logo.jpg" alt="Imagem de Fundo"> <!-- Substitua pela URL da sua imagem -->
         </td>
     </tr>
 </table>
@@ -165,10 +166,15 @@
         “Drag and drop” the correct word (some of these sentences require two separate words) to complete every sentence. 
         <span class="highlight">Don’t worry if you select the wrong word(s)!</span> This exercise will immediately let you know if your chose the correct or incorrect words. 
         If you chose incorrectly, you will be able to reselect. The meaning of the needed phrasal verbs is in parentheses beside the empty box.
-        </h3>
+    </h3>
 
-    <div id="exercise-wrapper">
-        <!-- Exercícios serão gerados aqui -->
+    <div class="exercise-wrapper">
+        <div class="exercise-container" id="exercise-container">
+            <!-- Exercícios serão gerados aqui -->
+        </div>
+        <div class="options-container" id="options-container">
+            <!-- Opções serão geradas aqui -->
+        </div>
     </div>
 </div>
 
@@ -185,18 +191,15 @@
         { phrase: "9. Some politicians can't figure ____ (unable to understand) why they are disliked.", answers: ["out"] },
         { phrase: "10. You can find ____ (discover) so much information on the Internet.", answers: ["out"] },
         { phrase: "11.  As we grow ____ (mature), our priorities change.", answers: ["up"] },
-        { phrase: "12. Students are required to hand XXXX____ (submit) their homework tomorrow.", answers: ["in"] }
+        { phrase: "12. Students are required to hand ____ (submit) their homework tomorrow.", answers: ["in"] }
     ];
 
     let allOptions = exercises.flatMap(ex => ex.answers);
     allOptions = allOptions.sort(() => Math.random() - 0.5);
 
     function generateExercises() {
-        const exerciseWrapper = document.getElementById('exercise-wrapper');
-        exerciseWrapper.innerHTML = '';
-
-        const exerciseContainer = document.createElement('div');
-        exerciseContainer.className = 'exercise-container';
+        const exerciseContainer = document.getElementById('exercise-container');
+        exerciseContainer.innerHTML = '';
 
         exercises.forEach((exercise, index) => {
             let phraseHTML = exercise.phrase;
@@ -210,8 +213,7 @@
             exerciseContainer.appendChild(phraseDiv);
         });
 
-        const optionsContainer = document.createElement('div');
-        optionsContainer.className = 'options-container';
+        const optionsContainer = document.getElementById('options-container');
 
         allOptions.forEach((option, i) => {
             const span = document.createElement('span');
@@ -222,13 +224,6 @@
             span.ondragstart = drag;
             optionsContainer.appendChild(span);
         });
-
-        const wrapper = document.createElement('div');
-        wrapper.className = 'exercise-wrapper';
-        wrapper.appendChild(exerciseContainer);
-        wrapper.appendChild(optionsContainer);
-
-        exerciseWrapper.appendChild(wrapper);
     }
 
     function allowDrop(ev) {
@@ -241,18 +236,18 @@
 
     function drop(ev, correctAnswer) {
         ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
-        var selectedOption = document.getElementById(data).textContent;
-        var dropbox = ev.target;
+        const selectedId = ev.dataTransfer.getData("text");
+        const selectedOption = document.getElementById(selectedId);
+        const dropbox = ev.target;
 
-        if (selectedOption === correctAnswer) {
-            dropbox.textContent = selectedOption;
+        if (selectedOption.textContent === correctAnswer) {
+            dropbox.textContent = selectedOption.textContent;
             dropbox.className = 'dropbox correct';
-            document.getElementById(data).remove(); // Remove a opção correta da lista
+            selectedOption.remove(); // Remove a opção correta
         } else {
-            dropbox.textContent = selectedOption;
+            dropbox.textContent = selectedOption.textContent;
             dropbox.className = 'dropbox incorrect';
-            document.getElementById(data).remove(); // Remove a opção incorreta também
+            selectedOption.remove(); // Remove a opção incorreta
             const removeBtn = document.createElement('span');
             removeBtn.className = 'remove-btn';
             removeBtn.innerHTML = 'X';
@@ -261,9 +256,9 @@
                 dropbox.className = 'dropbox';
                 const optionSpan = document.createElement('span');
                 optionSpan.className = 'option';
-                optionSpan.textContent = selectedOption;
+                optionSpan.textContent = selectedOption.textContent;
                 optionSpan.draggable = true;
-                optionSpan.id = data;
+                optionSpan.id = selectedOption.id;
                 optionSpan.ondragstart = drag;
                 document.querySelector('.options-container').appendChild(optionSpan);
                 dropbox.removeChild(removeBtn);
