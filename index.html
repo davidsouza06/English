@@ -50,8 +50,6 @@
             top: 30%;
             left: 50%;
             transform: translate(-50%, -50%);
-            position: relative; /* Mude de absolute para relative */
-            margin-top: 20px; /* Adicione um espaço acima */
             z-index: 1;
         }
 
@@ -188,7 +186,6 @@
         { phrase: "10. You can find ____ (discover) so much information on the Internet.", answers: ["out"] },
         { phrase: "11.  As we grow ____ (mature), our priorities change.", answers: ["up"] },
         { phrase: "12. Students are required to hand XXXX____ (submit) their homework tomorrow.", answers: ["in"] }
-        { phrase: "12. Students are required to hand ____ (submit) their homework tomorrow.", answers: ["in"] }
     ];
 
     let allOptions = exercises.flatMap(ex => ex.answers);
