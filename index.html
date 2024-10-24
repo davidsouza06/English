@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+==<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,9 @@
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
-            align-items: center; /* Centraliza horizontalmente */
+            justify-content: center; /* Centraliza verticalmente o conteúdo */
+            align-items: center; /* Centraliza horizontalmente o conteúdo */
+            background-color: #f0f0f0;
         }
 
         body {
@@ -23,80 +25,77 @@
 
         .image-table {
             width: 100%;
-            margin: 0;
-        }
-
-        .image-cell {
-            position: relative;
+            height: 100%; /* Faz com que a tabela preencha toda a altura */
+            position: absolute; /* Faz com que a imagem cubra a tela toda */
+            top: 0;
+            left: 0;
+            z-index: 0;
         }
 
         .image-cell img {
-            width: 80%; /* Ajuste a porcentagem conforme necessário */
-            height: auto; /* Mantém a proporção da imagem */
-            border-radius: 10px;
-            margin: 0 auto; /* Centraliza a imagem */
-            display: block; /* Necessário para o margin: 0 auto funcionar */
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Garante que a imagem cubra toda a área */
+            display: block;
+            position: relative;
         }
 
         .container {
-            width: 100%; /* Aumentado para ocupar mais espaço */
-            max-width: 1300px;
-            background-color: rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 1; /* Mantém o conteúdo acima da imagem */
+            background-color: rgba(255, 255, 255, 0.85);
             border-radius: 10px;
-            padding: 20px; /* Reduzido para aproximar mais os exercícios */
+            padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: left;
-            margin-top: -1850px; /* Ajuste este valor para mover os exercícios para cima */
-            z-index: 1;
-            position: relative; /* Mantém a posição relativa para sobreposição */
+            width: 90%; /* Responsivo, ocupa 90% da largura da tela */
+            max-width: 1200px; /* Limita a largura máxima em telas maiores */
+            margin: 0 auto; /* Centraliza horizontalmente */
+            top: 0%; /* Coloca o container mais para cima */
         }
 
         h3 {
             color: #2c3e50;
+            font-size: 1.6em;
+            line-height: 1.8em;
         }
 
         .exercise-wrapper {
             display: flex;
-            justify-content: flex-start; /* Alinha os exercícios à esquerda */
+            flex-wrap: wrap;
+            justify-content: space-between;
             margin-bottom: 20px;
-            align-items: flex-start; /* Alinha os itens no topo */
         }
 
         .exercise-container {
-            width: 70%; /* Aumentado para ocupar mais espaço */
-            margin: 0; /* Removido para manter alinhado com opções */
-            display: flex;
-            flex-direction: column; /* Mantém os exercícios em coluna */
+            width: 100%; /* Tente ajustar para melhorar o alinhamento */
+            max-width: 1000px; /* Limitar a largura máxima */
         }
 
         .phrase {
-            font-size: 16px;
-            margin-bottom: 10px; /* Reduzido para menos espaço entre os exercícios */
-            white-space: normal; 
-            overflow: visible;
-            word-wrap: break-word; /* Permite quebra de linha em palavras longas */
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            white-space: normal;
+            word-wrap: break-word;
         }
 
         .dropbox {
             border: 2px dashed #3498db;
-            width: 60px; /* Reduzido para diminuir a largura da caixa de resposta */
-            height: 25px; /* Reduzido para diminuir a altura da caixa de resposta */
+            width: 90px;
+            height: 25px;
             text-align: center;
-            line-height: 25px; /* Ajustado para alinhar o texto verticalmente */
+            line-height: 25px;
             display: inline-block;
             font-weight: bold;
             color: #3498db;
             margin: 0 5px;
-            font-size: 14px;
-            position: relative; /* Para facilitar a colocação do X */
         }
 
         .options-container {
-            width: 25%; /* Definido como 25% para caber ao lado dos exercícios */
+            width: 10%;
             display: flex;
-            flex-direction: column; /* Muda para coluna para alinhar as opções uma embaixo da outra */
-            align-items: flex-start; /* Alinha as opções à esquerda */
-            margin-left: 10px; /* Reduzido para espaço entre exercícios e opções */
+            flex-direction: column;
+            margin-left: 10px;
         }
 
         .highlight {
@@ -105,7 +104,7 @@
         }
 
         .option {
-            margin: 4px 0; /* Reduzido para menos espaço entre as opções */
+            margin: 2px 0;
             padding: 8px;
             background-color: #3498db;
             color: white;
@@ -113,8 +112,8 @@
             cursor: pointer;
             text-align: center;
             font-weight: bold;
-            font-size: 14px;
-            width: 100%; /* Ajuste para ocupar 100% da largura do container de opções */
+            font-size: 20px;
+            width: 100%;
         }
 
         .option:hover {
@@ -132,25 +131,70 @@
 
         .incorrect .remove-btn {
             position: absolute;
-            right: -5px; /* Ajustado para que o X não fique cortado */
-            top: 2px; /* Ajustado para que o X fique visível */
+            right: -5px;
+            top: 2px;
             background-color: #fff;
             border: 1px solid #f08080;
             color: #f08080;
             border-radius: 50%;
             cursor: pointer;
-            width: 15px; /* Mantido pequeno */
-            height: 15px; /* Mantido pequeno */
+            width: 15px;
+            height: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            font-size: 10px; /* Reduzido o tamanho da fonte */
+            font-size: 10px;
         }
 
         .remove-btn:hover {
             background-color: #f08080;
             color: #fff;
+        }
+
+        /* Media Queries para telas menores */
+        @media (max-width: 768px) {
+            .container {
+                top: 5%;
+                padding: 15px;
+            }
+
+            h3 {
+                font-size: 1em;
+            }
+
+            .exercise-wrapper {
+                flex-direction: column;
+            }
+
+            .exercise-container, .options-container {
+                width: 100%;
+            }
+
+            .dropbox {
+                width: 40px;
+                height: 20px;
+                line-height: 20px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h3 {
+                font-size: 0.9em;
+            }
+
+            .dropbox {
+                width: 35px;
+                height: 18px;
+                line-height: 18px;
+                font-size: 10px;
+            }
+
+            .option {
+                font-size: 12px;
+                padding: 6px;
+            }
         }
     </style>
 </head>
@@ -159,7 +203,7 @@
 <table class="image-table">
     <tr>
         <td class="image-cell">
-            <img src="SEB-Word-with-logo.jpg" alt="Imagem de Fundo"> <!-- Substitua pela URL da sua imagem -->
+            <img src="C:/Users/David/Downloads/SEB-Word-with-logo.jpg" alt="Imagem de Fundo">
         </td>
     </tr>
 </table>
@@ -183,8 +227,8 @@
 
 <script>
     const exercises = [
-        { phrase: "1. Many parents do not  know how to bring ____ (raise) their children. ", answers: ["up"] },
-        { phrase: "2.  The town council members stormed ____ (departed) over plans for the new supermarket.", answers: ["out"] },
+        { phrase: "1. Many parents do not know how to bring ____ (raise) their children.", answers: ["up"] },
+        { phrase: "2. The town council members stormed ____ (departed) over plans for the new supermarket.", answers: ["out"] },
         { phrase: "3. Some company owners refuse to face ____ ____ (accept unpleasant results) their corporate responsibilities, causing negative results.", answers: ["up", "to"] },
         { phrase: "4. Yesterday, we had to call ____ (stop something) our family get together.", answers: ["off"] },
         { phrase: "5. He can always count ____ (depend) his best friend when he needs him.", answers: ["on"] },
@@ -193,7 +237,7 @@
         { phrase: "8. Too many students drop ____ ____ (leave) school every year.", answers: ["out", "of"] },
         { phrase: "9. Some politicians can't figure ____ (unable to understand) why they are disliked.", answers: ["out"] },
         { phrase: "10. You can find ____ (discover) so much information on the Internet.", answers: ["out"] },
-        { phrase: "11.  As we grow ____ (mature), our priorities change.", answers: ["up"] },
+        { phrase: "11. As we grow ____ (mature), our priorities change.", answers: ["up"] },
         { phrase: "12. Students are required to hand ____ (submit) their homework tomorrow.", answers: ["in"] }
     ];
 
@@ -217,14 +261,14 @@
         });
 
         const optionsContainer = document.getElementById('options-container');
-
+        optionsContainer.innerHTML = '';
         allOptions.forEach((option, i) => {
-            const optionSpan = document.createElement('span');
+            const optionSpan = document.createElement('div');
             optionSpan.className = 'option';
-            optionSpan.textContent = option;
             optionSpan.draggable = true;
+            optionSpan.ondragstart = (event) => drag(event, option);
             optionSpan.id = `option${i}`;
-            optionSpan.ondragstart = drag;
+            optionSpan.innerHTML = option;
             optionsContainer.appendChild(optionSpan);
         });
     }
@@ -233,45 +277,27 @@
         ev.preventDefault();
     }
 
-    function drag(ev) {
-        ev.dataTransfer.setData("text", ev.target.id);
+    function drag(ev, text) {
+        ev.dataTransfer.setData("text", text);
     }
 
     function drop(ev, correctAnswer) {
         ev.preventDefault();
-        const selectedId = ev.dataTransfer.getData("text");
-        const selectedOption = document.getElementById(selectedId);
-        const dropbox = ev.target;
+        const data = ev.dataTransfer.getData("text");
 
-        if (selectedOption.textContent === correctAnswer) {
-            dropbox.textContent = selectedOption.textContent;
-            dropbox.className = 'dropbox correct';
-            selectedOption.remove(); // Remove a opção correta
+        ev.target.innerHTML = data;
+        if (data === correctAnswer) {
+            ev.target.classList.add("correct");
         } else {
-            dropbox.textContent = selectedOption.textContent;
-            dropbox.className = 'dropbox incorrect';
-            selectedOption.remove(); // Remove a opção incorreta
-            const removeBtn = document.createElement('span');
-            removeBtn.className = 'remove-btn';
-            removeBtn.innerHTML = 'X';
-            removeBtn.onclick = function() {
-                dropbox.textContent = '____';
-                dropbox.className = 'dropbox';
-                const optionSpan = document.createElement('span');
-                optionSpan.className = 'option';
-                optionSpan.textContent = selectedOption.textContent;
-                optionSpan.draggable = true;
-                optionSpan.id = selectedOption.id;
-                optionSpan.ondragstart = drag;
-                document.querySelector('.options-container').appendChild(optionSpan);
-                dropbox.removeChild(removeBtn);
-            };
-            dropbox.appendChild(removeBtn);
+            ev.target.classList.add("incorrect");
+            setTimeout(() => {
+                ev.target.innerHTML = "";
+                ev.target.classList.remove("incorrect");
+            }, 1000);
         }
     }
 
-    generateExercises();
+    window.onload = generateExercises;
 </script>
-
 </body>
 </html>
