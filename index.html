@@ -31,20 +31,22 @@
         }
 
         .image-cell img {
-            width: 100%;
-            height: auto;
+            width: 80%; /* Ajuste a porcentagem conforme necessário */
+            height: auto; /* Mantém a proporção da imagem */
             border-radius: 10px;
+            margin: 0 auto; /* Centraliza a imagem */
+            display: block; /* Necessário para o margin: 0 auto funcionar */
         }
 
         .container {
             width: 100%; /* Aumentado para ocupar mais espaço */
-            max-width: 1500px;
+            max-width: 1300px;
             background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             padding: 20px; /* Reduzido para aproximar mais os exercícios */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: left;
-            margin-top: -2300px; /* Ajuste este valor para mover os exercícios para cima */
+            margin-top: -1850px; /* Ajuste este valor para mover os exercícios para cima */
             z-index: 1;
             position: relative; /* Mantém a posição relativa para sobreposição */
         }
@@ -62,25 +64,25 @@
 
         .exercise-container {
             width: 70%; /* Aumentado para ocupar mais espaço */
-            margin: 0 auto;
+            margin: 0; /* Removido para manter alinhado com opções */
             display: flex;
             flex-direction: column; /* Mantém os exercícios em coluna */
         }
 
         .phrase {
             font-size: 16px;
-            margin-bottom: 20px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            margin-bottom: 10px; /* Reduzido para menos espaço entre os exercícios */
+            white-space: normal; 
+            overflow: visible;
+            word-wrap: break-word; /* Permite quebra de linha em palavras longas */
         }
 
         .dropbox {
             border: 2px dashed #3498db;
-            width: 80px;
-            height: 30px;
+            width: 60px; /* Reduzido para diminuir a largura da caixa de resposta */
+            height: 25px; /* Reduzido para diminuir a altura da caixa de resposta */
             text-align: center;
-            line-height: 30px;
+            line-height: 25px; /* Ajustado para alinhar o texto verticalmente */
             display: inline-block;
             font-weight: bold;
             color: #3498db;
@@ -93,8 +95,8 @@
             width: 25%; /* Definido como 25% para caber ao lado dos exercícios */
             display: flex;
             flex-direction: column; /* Muda para coluna para alinhar as opções uma embaixo da outra */
-            align-items: flex-end; /* Alinha as opções à direita */
-            margin-left: 20px; /* Espaço entre exercícios e opções */
+            align-items: flex-start; /* Alinha as opções à esquerda */
+            margin-left: 10px; /* Reduzido para espaço entre exercícios e opções */
         }
 
         .highlight {
@@ -103,7 +105,7 @@
         }
 
         .option {
-            margin: 8px 0; /* Espaço entre as opções */
+            margin: 4px 0; /* Reduzido para menos espaço entre as opções */
             padding: 8px;
             background-color: #3498db;
             color: white;
@@ -112,6 +114,7 @@
             text-align: center;
             font-weight: bold;
             font-size: 14px;
+            width: 100%; /* Ajuste para ocupar 100% da largura do container de opções */
         }
 
         .option:hover {
@@ -216,13 +219,13 @@
         const optionsContainer = document.getElementById('options-container');
 
         allOptions.forEach((option, i) => {
-            const span = document.createElement('span');
-            span.className = 'option';
-            span.textContent = option;
-            span.draggable = true;
-            span.id = `option${i}`;
-            span.ondragstart = drag;
-            optionsContainer.appendChild(span);
+            const optionSpan = document.createElement('span');
+            optionSpan.className = 'option';
+            optionSpan.textContent = option;
+            optionSpan.draggable = true;
+            optionSpan.id = `option${i}`;
+            optionSpan.ondragstart = drag;
+            optionsContainer.appendChild(optionSpan);
         });
     }
 
