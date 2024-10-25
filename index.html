@@ -204,7 +204,7 @@
 <table class="image-table">
     <tr>
         <td class="image-cell">
-            <img src="SEB-Word-with-logo.jpg" alt="Imagem de Fundo">
+            <img src="C:/Users/David/Downloads/SEB-Word-with-logo.jpg" alt="Imagem de Fundo">
         </td>
     </tr>
 </table>
@@ -242,8 +242,9 @@
         { phrase: "12. Students are required to hand ____ (submit) their homework tomorrow.", answers: ["in"] }
     ];
 
-    let allOptions = exercises.flatMap(ex => ex.answers);
+    let allOptions = exercises.flatMap(ex => ex.answers.map(answer => answer));
     allOptions = allOptions.sort(() => Math.random() - 0.5);
+    let removedOptions = []; // Para armazenar opções removidas
 
     function generateExercises() {
         const exerciseContainer = document.getElementById('exercise-container');
@@ -252,75 +253,95 @@
         exercises.forEach((exercise, index) => {
             let phraseHTML = exercise.phrase;
             exercise.answers.forEach((answer, i) => {
-                phraseHTML = phraseHTML.replace('____', `<span class="dropbox" ondrop="drop(event, '${answer}', ${index}, ${i})" ondragover="allowDrop(event)" id="dropbox${index}_${i}"></span>`);
+                phraseHTML = phraseHTML.replace('____', `<span class="dropbox" ondrop="drop(event)" ondragover="allowDrop(event)" id="dropbox-${index}-${i}"></span>`);
             });
 
-            const phraseDiv = document.createElement('div');
-            phraseDiv.className = 'phrase';
-            phraseDiv.innerHTML = phraseHTML;
-            exerciseContainer.appendChild(phraseDiv);
+            exerciseContainer.innerHTML += `<div class="phrase">${phraseHTML}</div>`;
         });
-
-        renderOptions();
     }
 
-    function renderOptions() {
+    function generateOptions() {
         const optionsContainer = document.getElementById('options-container');
         optionsContainer.innerHTML = '';
-        allOptions.forEach((option, i) => {
-            const optionSpan = document.createElement('div');
-            optionSpan.className = 'option';
-            optionSpan.draggable = true;
-            optionSpan.innerHTML = option;
-            optionSpan.ondragstart = (event) => event.dataTransfer.setData('text', option);
-            optionsContainer.appendChild(optionSpan);
+
+        allOptions.forEach((option) => {
+            const optionElement = document.createElement('div');
+            optionElement.className = 'option';
+            optionElement.innerHTML = option;
+            optionElement.draggable = true;
+            optionElement.addEventListener('dragstart', drag);
+            optionsContainer.appendChild(optionElement);
         });
     }
 
-    function allowDrop(event) {
-        event.preventDefault();
+    function allowDrop(ev) {
+        ev.preventDefault();
     }
 
-    function drop(event, correctAnswer, exerciseIndex, answerIndex) {
-        event.preventDefault();
-        const data = event.dataTransfer.getData('text');
-        const dropbox = event.target;
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.innerHTML);
+    }
 
-        // Se a resposta estiver correta
-        if (data === correctAnswer) {
-            dropbox.classList.add('correct');
-            dropbox.innerHTML = data;
+    function drop(ev) {
+        ev.preventDefault();
+        const data = ev.dataTransfer.getData("text");
+        const dropboxId = ev.target.id;
 
-            // Remover a opção arrastada da lista
-            const index = allOptions.indexOf(data);
-            if (index > -1) {
-                allOptions.splice(index, 1);
-                renderOptions(); // Atualiza as opções
-            }
+        // Verifica se a resposta está correta
+        const [exerciseIndex, answerIndex] = dropboxId.split('-').slice(1).map(Number);
+        const correctAnswers = exercises[exerciseIndex].answers;
+
+        // Adiciona a opção ao dropbox
+        ev.target.innerHTML = data;
+
+        // Remove a opção da lista de opções disponíveis
+        const optionsContainer = document.getElementById('options-container');
+        const optionDivs = Array.from(optionsContainer.children);
+        const matchedOption = optionDivs.find(optionDiv => optionDiv.innerHTML === data);
+        if (matchedOption) {
+            matchedOption.remove();
+            removedOptions.push(data);
+        }
+
+        // Verifica se a resposta está correta
+        if (correctAnswers.includes(data) || (correctAnswers.length === 2 && correctAnswers.includes(data))) {
+            ev.target.classList.add('correct');
+            ev.target.style.color = "black"; // Verde claro
+            ev.target.style.fontSize = "1.0em"; // Aumenta o tamanho da fonte
         } else {
-            dropbox.classList.add('incorrect');
-            dropbox.innerHTML = data;
+            // Se a resposta estiver errada
+            ev.target.classList.add('incorrect');
+            ev.target.style.color = "black"; // Vermelho claro
+            ev.target.style.fontSize = "1.0em"; // Aumenta o tamanho da fonte
 
-            // Remover a opção arrastada da lista, mesmo que esteja errada
-            const index = allOptions.indexOf(data);
-            if (index > -1) {
-                allOptions.splice(index, 1);
-                renderOptions(); // Atualiza as opções
-            }
+            const removeButton = document.createElement('div');
+            removeButton.className = 'remove-btn';
+            removeButton.innerHTML = 'X';
+            removeButton.onclick = function() {
+                ev.target.innerHTML = '';
+                ev.target.classList.remove('incorrect');
+                ev.target.style.color = "#3498db"; // Cor original
+                ev.target.style.fontSize = "1em"; // Tamanho original
 
-            const removeBtn = document.createElement('div');
-            removeBtn.className = 'remove-btn';
-            removeBtn.innerHTML = 'X';
-            removeBtn.onclick = () => {
-                dropbox.innerHTML = '';
-                dropbox.classList.remove('incorrect');
-                dropbox.classList.remove('correct');
+                // Adiciona a opção de volta à lista
+                const optionsContainer = document.getElementById('options-container');
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.innerHTML = data;
+                optionDiv.draggable = true;
+                optionDiv.addEventListener('dragstart', drag);
+                optionsContainer.appendChild(optionDiv);
+
+                // Remove o botão
+                removeButton.remove();
             };
-            dropbox.appendChild(removeBtn);
+            ev.target.appendChild(removeButton);
         }
     }
 
     generateExercises();
+    generateOptions();
 </script>
+
 </body>
 </html>
