@@ -1,4 +1,4 @@
-==<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
@@ -14,8 +14,8 @@
             overflow-x: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Centraliza verticalmente o conteúdo */
-            align-items: center; /* Centraliza horizontalmente o conteúdo */
+            justify-content: center;
+            align-items: center;
             background-color: #f0f0f0;
         }
 
@@ -25,34 +25,34 @@
 
         .image-table {
             width: 80%;
-            height: 80%; /* Faz com que a tabela preencha toda a altura */
-            position: absolute; /* Faz com que a imagem cubra a tela toda */
+            height: 80%;
+            position: absolute;
             top: 0;
             left: 0;
-            transform: translate(12%, 0%); /* Centraliza horizontal e verticalmente */
-            z-index: 0; /* Mantém a imagem em camadas inferiores */ 
+            transform: translate(12%, 0%);
+            z-index: 0;
         }
 
         .image-cell img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Garante que a imagem cubra toda a área */
+            object-fit: cover;
             display: block;
             position: relative;
         }
 
         .container {
             position: relative;
-            z-index: 1; /* Mantém o conteúdo acima da imagem */
+            z-index: 1;
             background-color: rgba(255, 255, 255, 0.85);
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: left;
-            width: 90%; /* Responsivo, ocupa 90% da largura da tela */
-            max-width: 1200px; /* Limita a largura máxima em telas maiores */
-            margin: 0 auto; /* Centraliza horizontalmente */
-            top: 0%; /* Coloca o container mais para cima */
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            top: 0%;
         }
 
         h3 {
@@ -69,8 +69,8 @@
         }
 
         .exercise-container {
-            width: 100%; /* Tente ajustar para melhorar o alinhamento */
-            max-width: 1024px; /* Limitar a largura máxima */
+            width: 100%;
+            max-width: 1024px;
         }
 
         .phrase {
@@ -90,6 +90,7 @@
             font-weight: bold;
             color: #3498db;
             margin: 0 5px;
+            position: relative;
         }
 
         .options-container {
@@ -127,13 +128,12 @@
 
         .incorrect {
             background-color: #f08080 !important;
-            position: relative;
         }
 
-        .incorrect .remove-btn {
+        .remove-btn {
             position: absolute;
             right: -5px;
-            top: 2px;
+            top: -5px;
             background-color: #fff;
             border: 1px solid #f08080;
             color: #f08080;
@@ -204,7 +204,7 @@
 <table class="image-table">
     <tr>
         <td class="image-cell">
-            <img src="SEB-Word-with-logo.jpg" alt="Imagem de Fundo">
+            <img src="C:/Users/David/Downloads/SEB-Word-with-logo.jpg" alt="Imagem de Fundo">
         </td>
     </tr>
 </table>
@@ -252,7 +252,7 @@
         exercises.forEach((exercise, index) => {
             let phraseHTML = exercise.phrase;
             exercise.answers.forEach((answer, i) => {
-                phraseHTML = phraseHTML.replace('____', `<span class="dropbox" ondrop="drop(event, '${answer}')" ondragover="allowDrop(event)" id="dropbox${index}_${i}"></span>`);
+                phraseHTML = phraseHTML.replace('____', `<span class="dropbox" ondrop="drop(event, '${answer}', ${index}, ${i})" ondragover="allowDrop(event)" id="dropbox${index}_${i}"></span>`);
             });
 
             const phraseDiv = document.createElement('div');
@@ -261,44 +261,66 @@
             exerciseContainer.appendChild(phraseDiv);
         });
 
+        renderOptions();
+    }
+
+    function renderOptions() {
         const optionsContainer = document.getElementById('options-container');
         optionsContainer.innerHTML = '';
         allOptions.forEach((option, i) => {
             const optionSpan = document.createElement('div');
             optionSpan.className = 'option';
             optionSpan.draggable = true;
-            optionSpan.ondragstart = (event) => drag(event, option);
-            optionSpan.id = `option${i}`;
             optionSpan.innerHTML = option;
+            optionSpan.ondragstart = (event) => event.dataTransfer.setData('text', option);
             optionsContainer.appendChild(optionSpan);
         });
     }
 
-    function allowDrop(ev) {
-        ev.preventDefault();
+    function allowDrop(event) {
+        event.preventDefault();
     }
 
-    function drag(ev, text) {
-        ev.dataTransfer.setData("text", text);
-    }
+    function drop(event, correctAnswer, exerciseIndex, answerIndex) {
+        event.preventDefault();
+        const data = event.dataTransfer.getData('text');
+        const dropbox = event.target;
 
-    function drop(ev, correctAnswer) {
-        ev.preventDefault();
-        const data = ev.dataTransfer.getData("text");
-
-        ev.target.innerHTML = data;
+        // Se a resposta estiver correta
         if (data === correctAnswer) {
-            ev.target.classList.add("correct");
+            dropbox.classList.add('correct');
+            dropbox.innerHTML = data;
+
+            // Remover a opção arrastada da lista
+            const index = allOptions.indexOf(data);
+            if (index > -1) {
+                allOptions.splice(index, 1);
+                renderOptions(); // Atualiza as opções
+            }
         } else {
-            ev.target.classList.add("incorrect");
-            setTimeout(() => {
-                ev.target.innerHTML = "";
-                ev.target.classList.remove("incorrect");
-            }, 1000);
+            dropbox.classList.add('incorrect');
+            dropbox.innerHTML = data;
+
+            // Remover a opção arrastada da lista, mesmo que esteja errada
+            const index = allOptions.indexOf(data);
+            if (index > -1) {
+                allOptions.splice(index, 1);
+                renderOptions(); // Atualiza as opções
+            }
+
+            const removeBtn = document.createElement('div');
+            removeBtn.className = 'remove-btn';
+            removeBtn.innerHTML = 'X';
+            removeBtn.onclick = () => {
+                dropbox.innerHTML = '';
+                dropbox.classList.remove('incorrect');
+                dropbox.classList.remove('correct');
+            };
+            dropbox.appendChild(removeBtn);
         }
     }
 
-    window.onload = generateExercises;
+    generateExercises();
 </script>
 </body>
 </html>
