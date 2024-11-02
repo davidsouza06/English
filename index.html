@@ -11,7 +11,8 @@
             padding: 0;
             height: 100%;
             width: 100%;
-            overflow-x: hidden;
+            /*overflow-x: hidden;*/
+            /*overflow-y: visible;*/
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -24,12 +25,12 @@
         }
 
         .image-table {
-            width: 80%;
-            height: 80%;
+            width: 95%;
+            height: 95%;
             position: absolute;
             top: 0;
             left: 0;
-            transform: translate(12%, 0%);
+            transform: translate(2%, -2%);
             z-index: 0;
         }
 
@@ -122,6 +123,22 @@
             background-color: #2980b9;
         }
 
+         .translate-btn {
+            margin-top: -10px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .translate-btn:hover {
+            background-color: #2980b9;
+        }
+
+
         .correct {
             background-color: #90ee90 !important;
         }
@@ -204,17 +221,18 @@
 <table class="image-table">
     <tr>
         <td class="image-cell">
-            <img src="SEB-Word-with-logo.jpg" alt="Imagem de Fundo">
+            <img src="C:/Users/David/Downloads/SEB-Word-with-logo.jpg" alt="Imagem de Fundo">
         </td>
     </tr>
 </table>
 
 <div class="container">
-    <h3>Understanding and using English phrasal verbs will help you improve your fluency. This exercise is designed for that purpose. 
+    <h3 id="exercise-text">Understanding and using English phrasal verbs will help you improve your fluency. This exercise is designed for that purpose. 
         “Drag and drop” the correct word (some of these sentences require two separate words) to complete every sentence. 
         <span class="highlight">Don’t worry if you select the wrong word(s)!</span> This exercise will immediately let you know if your chose the correct or incorrect words. 
         If you chose incorrectly, you will be able to reselect. The meaning of the needed phrasal verbs is in parentheses beside the empty box.
     </h3>
+    <button class="translate-btn" onclick="toggleTranslation()">Traduzir Texto</button>
 
     <div class="exercise-wrapper">
         <div class="exercise-container" id="exercise-container">
@@ -224,6 +242,7 @@
             <!-- Opções serão geradas aqui -->
         </div>
     </div>
+
 </div>
 
 <script>
@@ -337,6 +356,23 @@
             };
             ev.target.appendChild(removeButton);
         }
+    }
+
+    let isTranslated = false;
+    function toggleTranslation() {
+        const exerciseText = document.getElementById('exercise-text');
+        if (isTranslated) {
+            exerciseText.innerHTML = `Understanding and using English phrasal verbs will help you improve your fluency. This exercise is designed for that purpose. 
+            “Drag and drop” the correct word (some of these sentences require two separate words) to complete every sentence. 
+            <span class="highlight">Don’t worry if you select the wrong word(s)!</span> This exercise will immediately let you know if your chose the correct or incorrect words. 
+            If you chose incorrectly, you will be able to reselect. The meaning of the needed phrasal verbs is in parentheses beside the empty box.`;
+        } else {
+            exerciseText.innerHTML = `Compreender e usar verbos frasais em inglês ajudará você a melhorar sua fluência. Este exercício foi projetado para esse propósito. 
+            “Arraste e solte” a palavra correta (algumas dessas frases exigem duas palavras separadas) para completar cada frase. 
+            <span class="highlight">Não se preocupe se você selecionar a palavra(s) errada(s)!</span> Este exercício imediatamente lhe dirá se você escolheu as palavras corretas ou incorretas. 
+            Se você escolheu incorretamente, poderá selecionar novamente. O significado dos verbos frasais necessários está entre parênteses ao lado da caixa vazia.`;
+        }
+        isTranslated = !isTranslated; // Alterna o estado da tradução
     }
 
     generateExercises();
