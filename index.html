@@ -868,13 +868,19 @@
     function toggleTranslation4() {
         const exerciseText = document.getElementById('exercise-text4');
         if (isTranslated) {
-            exerciseText.innerHTML = `4. In the following pairs of sentences, the verb needing replacement in sentences “a” are highlighted in red. 
-            Replace these verbs with the correct phrasal verbs (some sentences have only one word needed and others need more) in red in sentences “b.” 
-            As with the above exercise, <span class="highlight">don’t be concerned if you insert the wrong word(s)!</span> Continue choosing until the correct word(s) are chosen.`;
+            exerciseText.innerHTML = `Articles/identifier are words that identify and are connected to nouns. The following sentences are without an article/identifier. 
+        Select and place the correct article/identifier in each of the following sentences.</br>
+        Here are the grammar rules: The identifier/article “a” is (followed by) connected to nouns that begin with a consonant;</br> 
+        The identifier/article “an” is connected to nouns that begin the <span class="highlight">SOUND</span> of a vowel;</br> 
+        The identifier/article “the” is connected to a noun beginning with a consonant or the sound of a vowel, and when the noun is specific or particular, 
+        whether singular or plural.`;
         } else {
-            exerciseText.innerHTML = `4. Nos pares de sentenças seguintes, os verbos que precisam ser substituídos nas sentenças “a” estão destacados em vermelho. 
-            Substitua esses verbos pelos verbos frasais corretos (algumas sentenças têm apenas uma palavra necessária e outras precisam de mais) em vermelho nas sentenças “b”. 
-            Tal como acontece com o exercício acima, <span class="highlight">não se preocupe se inserir a(s) palavra(s) errada(s)!</span> Continue escolhendo até que as palavras corretas sejam escolhidas.`;
+            exerciseText.innerHTML = `4. Artigos/identificadores são palavras que identificam e estão conectadas a substantivos. As frases a seguir não têm artigo/identificador. 
+            Selecione e coloque o artigo/identificador correto em cada uma das frases a seguir.</br>
+            Aqui estão as regras gramaticais: O identificador/artigo “a” é (seguido por) conectado a substantivos que começam com uma consoante;</br> 
+            O identificador/artigo “an” é conectado a substantivos que começam com o <span class="highlight">SOM</span> de uma vogal; 
+            O identificador/artigo “the” é conectado a um substantivo que começa com uma consoante ou o som de uma vogal, e quando o substantivo é específico ou particular, 
+            seja singular ou plural`;
         }
         isTranslated = !isTranslated; // Alterna o estado da tradução
     }
