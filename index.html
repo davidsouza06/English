@@ -5,496 +5,188 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercício Interativo</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-            /*overflow-x: hidden;*/
-            /*overflow-y: visible;*/
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #f0f0f0;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-        }
-
-        .exercise-page
-        {
-            background-image: url('SEB-Word-with-logo.jpg');
-    background-repeat: no-repeat;
-    background-position: center; /* Centraliza a imagem */
-    background-size: cover; /* Cobre toda a tela, sem distorcer a imagem */
-    width: 100vw;  /* Largura 100% da tela */
-    min-height: 100vh; /* Altura mínima 100% da tela */
-    margin: 0; /* Remover margens */
-    padding: 0; /* Remover preenchimento */
-
-}
-        .container {
-            position: relative;
-            z-index: 1;
-            background-color: rgba(255, 255, 255, 0.85);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            text-align: left;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            top: 10%;
-        }
-
-        h3 {
-            color: #2c3e50;
-            font-size: 1.2em;
-            line-height: 1.4em;
-        }
-
-        .exercise-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .exercise-container {
-            width: 100%;
-            max-width: 1024px;
-        }
-
-        .phrase {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            white-space: normal;
-            word-wrap: break-word;
-        }
-
-        .dropbox {
-            border: 2px dashed #3498db;
-            width: 90px;
-            height: 25px;
-            text-align: center;
-            line-height: 25px;
-            display: inline-block;
-            font-weight: bold;
-            color: #3498db;
-            margin: 0 5px;
-            position: relative;
-        }
-
-        .options-container {
-            width: 10%;
-            display: flex;
-            flex-direction: column;
-            margin-left: 10px;
-        }
-
-        .highlight {
-            color: red;
-            text-decoration: underline;
-        }
-
-        .option {
-            margin: 2px 0;
-            padding: 8px;
-            background-color: #3498db;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            font-weight: bold;
-            font-size: 14px;
-            width: 100%;
-        }
-
-        .option:hover {
-            background-color: #2980b9;
-        }
-
-         .translate-btn {
-            margin-top: -20px;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .translate-btn:hover {
-            background-color: #2980b9;
-        }
-
-
-        .correct {
-            background-color: #90ee90 !important;
-        }
-
-        .incorrect {
-            background-color: #f08080 !important;
-        }
-
-        .remove-btn {
-            position: absolute;
-            right: -5px;
-            top: -5px;
-            background-color: #fff;
-            border: 1px solid #f08080;
-            color: #f08080;
-            border-radius: 50%;
-            cursor: pointer;
-            width: 15px;
-            height: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 10px;
-        }
-
-        .remove-btn:hover {
-            background-color: #f08080;
-            color: #fff;
-        }
-
-        /* Media Queries para telas menores */
-        @media (max-width: 768px) {
-            .container {
-                top: 5%;
-                padding: 15px;
-            }
-
-            h3 {
-                font-size: 1em;
-            }
-
-            .exercise-wrapper {
-                flex-direction: column;
-            }
-
-            .exercise-container, .options-container {
-                width: 100%;
-            }
-
-            .dropbox {
-                width: 40px;
-                height: 20px;
-                line-height: 20px;
-                font-size: 12px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h3 {
-                font-size: 0.9em;
-            }
-
-            .dropbox {
-                width: 35px;
-                height: 18px;
-                line-height: 18px;
-                font-size: 10px;
-            }
-
-            .option {
-                font-size: 12px;
-                padding: 6px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<div class="exercise-page">
-<div class="container">
-    <h3 id="exercise-text">1. Understanding and using English phrasal verbs will help you improve your fluency. This exercise is designed for that purpose. 
-        “Drag and drop” the correct word (some of these sentences require two separate words) to complete every sentence. 
-        <span class="highlight">Don’t worry if you select the wrong word(s)!</span> This exercise will immediately let you know if your chose the correct or incorrect words. 
-        If you chose incorrectly, you will be able to reselect. The meaning of the needed phrasal verbs is in parentheses beside the empty box.
-    </h3>
-    <button class="translate-btn" onclick="toggleTranslation()">Traduzir Texto</button>
+    <div class="exercise-page">
+        <div class="root-container">
+            <div class="container">
+                
+                <!-- Página 1 -->
+                <div id="page1" class="page">
+                    <h3 id="exercise-text">
+                        1. Understanding and using English phrasal verbs will help you improve your fluency. 
+                        This exercise is designed for that purpose. “Drag and drop” the correct word (some of these sentences require two separate words) to complete every sentence.
+                        <span class="highlight">Don’t worry if you select the wrong word(s)!</span> 
+                        This exercise will immediately let you know if your chose the correct or incorrect words. If you chose incorrectly, you will be able to reselect. 
+                        The meaning of the needed phrasal verbs is in parentheses beside the empty box.
+                    </h3>
+                    
+                    <button class="translate-btn" onclick="toggleTranslation()">Traduzir Texto</button>
 
-    <div class="exercise-wrapper">
-        <div class="exercise-container" id="exercise-container">
-            <!-- Exercícios serão gerados aqui -->
-        </div>
-        <div class="options-container" id="options-container">
-            <!-- Opções serão geradas aqui -->
+                    <div class="exercise-wrapper">
+                        <div class="exercise-container" id="exercise-container-1">
+                            <!-- Exercícios serão gerados aqui -->
+                        </div>
+                        <div class="options-container" id="options-container-1" >
+                            <!-- Opções serão geradas aqui -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Página 2 -->
+                <div id="page2" class="page" style="display: none;">
+                    <h3 id="exercise-text2">Exercise 2</h3>
+                    <button class="translate-btn" onclick="toggleTranslation2()">Traduzir Texto</button>
+
+                    <div class="exercise-wrapper">
+                        <div class="exercise-container" id="exercise-container-2">
+                            <!-- Exercícios serão gerados aqui -->
+                        </div>
+                        <div class="options-container" id="options-container-2">
+                            <!-- Opções serão geradas aqui -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Página 3 -->
+                <div id="page3" class="page" style="display: none;">
+                    <h3 id="exercise-text3">3. In the following pairs of sentences, the verb needing replacement in sentences “a” are highlighted in red. 
+                        Replace these verbs with the correct phrasal verbs (some sentences have only one word needed and others need more) in red in sentences “b.” 
+                        As with the above exercise, <span class="highlight">don’t be concerned if you insert the wrong word(s)!</span> Continue choosing until the correct word(s) are chosen.</h3>
+                    <button class="translate-btn" onclick="toggleTranslation2()">Traduzir Texto</button>
+
+                    <div class="exercise-wrapper">
+                        <div class="exercise-container" id="exercise-container-3">
+                            <!-- Exercícios serão gerados aqui -->
+                        </div>
+                        <div class="options-container" id="options-container-3">
+                            <!-- Opções serão geradas aqui -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page4" class="page" style="display: none;">
+                    <h3 id="exercise-text4">4. Articles/identifier are words that identify and are connected to nouns. The following sentences are without an article/identifier. 
+                        Select and place the correct article/identifier in each of the following sentences.</br>
+                
+                        Here are the grammar rules: The identifier/article “a” is (followed by) connected to nouns that begin with a consonant;</br> 
+                        The identifier/article “an” is connected to nouns that begin the <span class="highlight">SOUND</span> of a vowel;</br> 
+                        The identifier/article “the” is connected to a noun beginning with a consonant or the sound of a vowel, and when the noun is specific or particular, 
+                        whether singular or plural.   </h3>
+                    <button class="translate-btn" onclick="toggleTranslation2()" style="margin-bottom: 7px;">Traduzir Texto</button>
+
+                    <div class="exercise-wrapper">
+                        <div class="exercise-container" id="exercise-container-4">
+                            <!-- Exercícios serão gerados aqui -->
+                        </div>
+                        <div class="options-container" id="options-container-4">
+                            <!-- Opções serão geradas aqui -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page5" class="page" style="display: none;">
+                    <h3 id="exercise-text5">5. This exercise introduces you to a random conversation between two people who don’t know each other. Select the correct missing words. </h3>
+                    <button class="translate-btn" onclick="toggleTranslation2()" style="margin-bottom: 7px;">Traduzir Texto</button>
+
+                    <div class="exercise-wrapper">
+                        <div class="exercise-container" id="exercise-container-5">
+                            <!-- Exercícios serão gerados aqui -->
+                        </div>
+                        <div class="options-container" id="options-container-5">
+                            <!-- Opções serão geradas aqui -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page6" class="page" style="display: none;">
+                    <h3 id="exercise-text6">6. This exercise is to introduce you to the English use of contractions. </h3>
+                    <button class="translate-btn" onclick="toggleTranslation2()" style="margin-bottom: 7px;">Traduzir Texto</button>
+
+                    <div class="exercise-wrapper">
+                        <div class="exercise-container" id="exercise-container-6">
+                            <!-- Exercícios serão gerados aqui -->
+                        </div>
+                        <div class="options-container" id="options-container-6">
+                            <!-- Opções serão geradas aqui -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page7" class="page" style="display: none;">
+                    <h3 id="exercise-text7">7. Understanding English verb tenses is easier than Portuguese verb tenses since English verbs are gender-neutral and do not change regardless of nouns. In this paragraph, choose the correct verb tense, 
+                        but be aware that some are irregular verbs. The grammar rules: When regular verbs are past-tense, an “-ed” is added to the end of the verb. However, the spelling of irregular verbs change when they are conjugated.   </h3>
+                    <button class="translate-btn" onclick="toggleTranslation2()" style="margin-bottom: 7px;">Traduzir Texto</button>
+
+                    <div class="exercise-wrapper">
+                        <div class="exercise-container" id="exercise-container-7">
+                            <!-- Exercícios serão gerados aqui -->
+                        </div>
+                        <div class="options-container" id="options-container-7">
+                            <!-- Opções serão geradas aqui -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page8" class="page" style="display: none;">
+                    <h3 id="exercise-text8">8. English interrogatives are used to obtain information from someone or about something. 
+                        These interrogatives are popularly known as the “Five Ws and H” words. Choose the correct interrogative words for each sentence.   </h3>
+                    <button class="translate-btn" onclick="toggleTranslation2()" style="margin-bottom: 7px;">Traduzir Texto</button>
+
+                    <div class="exercise-wrapper">
+                        <div class="exercise-container" id="exercise-container-8">
+                            <!-- Exercícios serão gerados aqui -->
+                        </div>
+                        <div class="options-container" id="options-container-8">
+                            <!-- Opções serão geradas aqui -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page9" class="page" style="display: none;">
+                    <h3 id="exercise-text9">9. Are you confused about when and how to use “to, too, and two?” Don’t be! Many Americans also mistakenly use the wrong words – especially “to” and “too.” </h3>
+                    <button class="translate-btn" onclick="toggleTranslation2()" style="margin-bottom: 7px;">Traduzir Texto</button>
+
+                    <div class="exercise-wrapper">
+                        <div class="exercise-container" id="exercise-container-9">
+                            <!-- Exercícios serão gerados aqui -->
+                        </div>
+                        <div class="options-container" id="options-container-9">
+                            <!-- Opções serão geradas aqui -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="page10" class="page" style="display: none;">
+                    <h3 id="exercise-text10">10. “Much” or “Many” to describe an amount of something?
+                        Grammar rules: Use “many” for countable nouns and “much” for a large quantity/uncountable of one type.
+                        Choose the correct word for each sentence.         </h3>
+                    <button class="translate-btn" onclick="toggleTranslation2()" style="margin-bottom: 7px;">Traduzir Texto</button>
+
+                    <div class="exercise-wrapper">
+                        <div class="exercise-container" id="exercise-container-10">
+                            <!-- Exercícios serão gerados aqui -->
+                        </div>
+                        <div class="options-container" id="options-container-10">
+                            <!-- Opções serão geradas aqui -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botões de navegação -->
+                <div class="navigation">
+                    <button class="translate-btn nav-btn" id="voltar-btn" onclick="goToPage1()">Voltar</button>
+                    <button class="translate-btn nav-btn" id="avancar-btn" onclick="goToPage2()">Próximo</button>
+                </div>
+
+                <!-- Logo da Marca -->
+                <img src="img/synergy.webp" alt="Logo da Marca" class="brand-logo">
+
+            </div>
         </div>
     </div>
 
-    <h3 id="exercise-text2">Exercise 2</h3>
-    <button class="translate-btn" onclick="toggleTranslation2()">Traduzir Texto</button>
-
-    <div class="exercise-wrapper">
-        <div class="exercise-container" id="exercise-container-2">
-            <!-- Exercícios serão gerados aqui -->
-        </div>
-        <div class="options-container" id="options-container-2">
-            <!-- Opções serão geradas aqui -->
-        </div>
-    </div>  
-
-</div>
-</div>
-
-<script>
-    const exercises = [
-        { phrase: "1. Many parents do not know how to bring ____ (raise) their children.", answers: ["up"] },
-        { phrase: "2. The town council members stormed ____ (departed) over plans for the new supermarket.", answers: ["out"] },
-        { phrase: "3. Some company owners refuse to face ____ ____ (accept unpleasant results) their corporate responsibilities, causing negative results.", answers: ["up", "to"] },
-        { phrase: "4. Yesterday, we had to call ____ (stop something) our family get together.", answers: ["off"] },
-        { phrase: "5. He can always count ____ (depend) his best friend when he needs him.", answers: ["on"] },
-        { phrase: "6. Many under-developed nations fail to catch ____ (get the same results) with their more developed neighbors.", answers: ["up"] },
-        { phrase: "7. As the wind dies ____, (gets weaker) it starts to feel hotter.", answers: ["down"] },
-        { phrase: "8. Too many students drop ____ ____ (leave) school every year.", answers: ["out", "of"] },
-        { phrase: "9. Some politicians can't figure ____ (unable to understand) why they are disliked.", answers: ["out"] },
-        { phrase: "10. You can find ____ (discover) so much information on the Internet.", answers: ["out"] },
-        { phrase: "11. As we grow ____ (mature), our priorities change.", answers: ["up"] },
-        { phrase: "12. Students are required to hand ____ (submit) their homework tomorrow.", answers: ["in"] }
-    ];
-
-    let allOptions = exercises.flatMap(ex => ex.answers.map(answer => answer));
-    allOptions = allOptions.sort(() => Math.random() - 0.5);
-    let removedOptions = []; // Para armazenar opções removidas
-
-    function generateExercises() {
-        const exerciseContainer = document.getElementById('exercise-container');
-        exerciseContainer.innerHTML = '';
-
-        exercises.forEach((exercise, index) => {
-            let phraseHTML = exercise.phrase;
-            exercise.answers.forEach((answer, i) => {
-                phraseHTML = phraseHTML.replace('____', `<span class="dropbox" ondrop="drop(event)" ondragover="allowDrop(event)" id="dropbox-${index}-${i}"></span>`);
-            });
-
-            exerciseContainer.innerHTML += `<div class="phrase">${phraseHTML}</div>`;
-        });
-    }
-
-    function generateOptions() {
-        const optionsContainer = document.getElementById('options-container');
-        optionsContainer.innerHTML = '';
-
-        allOptions.forEach((option) => {
-            const optionElement = document.createElement('div');
-            optionElement.className = 'option';
-            optionElement.innerHTML = option;
-            optionElement.draggable = true;
-            optionElement.addEventListener('dragstart', drag);
-            optionsContainer.appendChild(optionElement);
-        });
-    }
-
-    function allowDrop(ev) {
-        ev.preventDefault();
-    }
-
-    function drag(ev) {
-        ev.dataTransfer.setData("text", ev.target.innerHTML);
-    }
-
-    function drop(ev) {
-        ev.preventDefault();
-        const data = ev.dataTransfer.getData("text");
-        const dropboxId = ev.target.id;
-
-        // Verifica se a resposta está correta
-        const [exerciseIndex, answerIndex] = dropboxId.split('-').slice(1).map(Number);
-        const correctAnswers = exercises[exerciseIndex].answers;
-
-        // Adiciona a opção ao dropbox
-        ev.target.innerHTML = data;
-
-        // Remove a opção da lista de opções disponíveis
-        const optionsContainer = document.getElementById('options-container');
-        const optionDivs = Array.from(optionsContainer.children);
-        const matchedOption = optionDivs.find(optionDiv => optionDiv.innerHTML === data);
-        if (matchedOption) {
-            matchedOption.remove();
-            removedOptions.push(data);
-        }
-
-        // Verifica se a resposta está correta
-        if (correctAnswers.includes(data) || (correctAnswers.length === 2 && correctAnswers.includes(data))) {
-            ev.target.classList.add('correct');
-            ev.target.style.color = "black"; // Verde claro
-            ev.target.style.fontSize = "1.0em"; // Aumenta o tamanho da fonte
-        } else {
-            // Se a resposta estiver errada
-            ev.target.classList.add('incorrect');
-            ev.target.style.color = "black"; // Vermelho claro
-            ev.target.style.fontSize = "1.0em"; // Aumenta o tamanho da fonte
-
-            const removeButton = document.createElement('div');
-            removeButton.className = 'remove-btn';
-            removeButton.innerHTML = 'X';
-            removeButton.onclick = function() {
-                ev.target.innerHTML = '';
-                ev.target.classList.remove('incorrect');
-                ev.target.style.color = "#3498db"; // Cor original
-                ev.target.style.fontSize = "1em"; // Tamanho original
-
-                // Adiciona a opção de volta à lista
-                const optionsContainer = document.getElementById('options-container');
-                const optionDiv = document.createElement('div');
-                optionDiv.className = 'option';
-                optionDiv.innerHTML = data;
-                optionDiv.draggable = true;
-                optionDiv.addEventListener('dragstart', drag);
-                optionsContainer.appendChild(optionDiv);
-
-                // Remove o botão
-                removeButton.remove();
-            };
-            ev.target.appendChild(removeButton);
-        }
-    }
-
-    let isTranslated = false;
-    function toggleTranslation() {
-        const exerciseText = document.getElementById('exercise-text');
-        if (isTranslated) {
-            exerciseText.innerHTML = `1. Understanding and using English phrasal verbs will help you improve your fluency. This exercise is designed for that purpose. 
-            “Drag and drop” the correct word (some of these sentences require two separate words) to complete every sentence. 
-            <span class="highlight">Don’t worry if you select the wrong word(s)!</span> This exercise will immediately let you know if your chose the correct or incorrect words. 
-            If you chose incorrectly, you will be able to reselect. The meaning of the needed phrasal verbs is in parentheses beside the empty box.`;
-        } else {
-            exerciseText.innerHTML = `1. Compreender e usar verbos frasais em inglês ajudará você a melhorar sua fluência. Este exercício foi projetado para esse propósito. 
-            “Arraste e solte” a palavra correta (algumas dessas frases exigem duas palavras separadas) para completar cada frase. 
-            <span class="highlight">Não se preocupe se você selecionar a palavra(s) errada(s)!</span> Este exercício imediatamente lhe dirá se você escolheu as palavras corretas ou incorretas. 
-            Se você escolheu incorretamente, poderá selecionar novamente. O significado dos verbos frasais necessários está entre parênteses ao lado da caixa vazia.`;
-        }
-        isTranslated = !isTranslated; // Alterna o estado da tradução
-    }
-
-    const exercises2 = [
-        { phrase: "1. Salaries often don’t keep ____ (increase) with the cost of living.", answers: ["up"] },
-        { phrase: "2. Your report is very detailed, but it leaves ____ (does not include) some important details.", answers: ["out"] },
-        { phrase: "3. The history teacher pointed ____ (showed) all of the locations where similar incidents occurred.", answers: ["out"] },
-        { phrase: "4. Before you write your book, you need to look ____ (research) the country's history.", answers: ["into"] },
-        { phrase: "5. Very few employees carried ____ (continued) working before the strike happened.", answers: ["on"] },
-        { phrase: "6. When homeowners fall ____ (become late) with their mortgage payments, the bank will take their home.", answers: ["behind"] },
-        { phrase: "7. The best way to lose weight is to cut ____ (reduce) the amount of sugar eaten.", answers: ["down"] },
-        { phrase: "8. Vegetarians cut meat ____ (stop) from their diet.", answers: ["out"] },
-        { phrase: "9. The family’s business was taken ____ (purchased) by a large company.", answers: ["over"] },
-        { phrase: "10. My cell phone stopped working so I had to make ____ (improvise) with my laptop.", answers: ["do"] },
-        { phrase: "11. My new book will put ____ (suggest) the arguments for capitalism.", answers: ["forward"] },
-        { phrase: "12. When I look ____ (think about the past) at my childhood, I have good memories of my first school.", answers: ["back"] }
-
-    ];
-
-    let allOptions2 = exercises2.flatMap(ex => ex.answers.map(answer => answer));
-    allOptions2 = allOptions2.sort(() => Math.random() - 0.5);
-    let removedOptions2 = [];
-
-    function generateExercises2() {
-        const exerciseContainer2 = document.getElementById('exercise-container-2');
-        exerciseContainer2.innerHTML = '';
-
-        exercises2.forEach((exercise, index) => {
-            let phraseHTML = exercise.phrase;
-            exercise.answers.forEach((answer, i) => {
-                phraseHTML = phraseHTML.replace('____', `<span class="dropbox" ondrop="drop2(event)" ondragover="allowDrop(event)" id="dropbox-2-${index}-${i}"></span>`);
-            });
-
-            exerciseContainer2.innerHTML += `<div class="phrase">${phraseHTML}</div>`;
-        });
-    }
-
-    function generateOptions2() {
-        const optionsContainer2 = document.getElementById('options-container-2');
-        optionsContainer2.innerHTML = '';
-
-        allOptions2.forEach((option) => {
-            const optionElement2 = document.createElement('div');
-            optionElement2.className = 'option';
-            optionElement2.innerHTML = option;
-            optionElement2.draggable = true;
-            optionElement2.addEventListener('dragstart', drag2);
-            optionsContainer2.appendChild(optionElement2);
-        });
-    }
-
-    function allowDrop2(ev2) {
-        ev2.preventDefault();
-    }
-
-    function drag2(ev2) {
-        ev2.dataTransfer.setData("text", ev2.target.innerHTML);
-    }
-
-    function drop2(ev2) {
-        ev2.preventDefault();
-        const data2 = ev2.dataTransfer.getData("text");
-        const dropboxId2 = ev2.target.id;
-
-        // Verifica se a resposta está correta
-        const [exerciseIndex2, answerIndex2] = dropboxId2.split('-').slice(2).map(Number);
-        const correctAnswers2 = exercises2[exerciseIndex2].answers;
-
-        ev2.target.innerHTML = data2;
-        
-        const optionsContainer2 = document.getElementById('options-container-2');
-        const optionDivs2 = Array.from(optionsContainer2.children);
-        const matchedOption2 = optionDivs2.find(optionDiv2 => optionDiv2.innerHTML === data2);
-        if (matchedOption2) {
-            matchedOption2.remove();
-            removedOptions2.push(data2);
-        }
-
-        if (correctAnswers2.includes(data2)) {
-            ev2.target.classList.add('correct');
-            ev2.target.style.color = "black";
-        } else {
-            ev2.target.classList.add('incorrect');
-            ev2.target.style.color = "black";
-
-            const removeButton2 = document.createElement('div');
-            removeButton2.className = 'remove-btn';
-            removeButton2.innerHTML = 'X';
-            removeButton2.onclick = function() {
-                ev2.target.innerHTML = '';
-                ev2.target.classList.remove('incorrect');
-                ev2.target.style.color = "#3498db";
-
-                const optionDiv2 = document.createElement('div');
-                optionDiv2.className = 'option';
-                optionDiv2.innerHTML = data2;
-                optionDiv2.draggable = true;
-                optionDiv2.addEventListener('dragstart', drag2);
-
-                optionsContainer2.appendChild(optionDiv2);
-
-                removeButton2.remove();
-            };
-            ev2.target.appendChild(removeButton2);
-        }
-    }
-
-    function toggleTranslation2() {
-        const exerciseText = document.getElementById('exercise-text2');
-        if (isTranslated) {
-            exerciseText.innerHTML = `Exercise 2`;
-        } else {
-            exerciseText.innerHTML = `Exercício 2`;
-        }
-        isTranslated = !isTranslated; // Alterna o estado da tradução
-    }
-
-    
-    // Chame as funções de inicialização para as duas séries de exercícios
-    generateExercises();
-    generateOptions();
-        generateExercises2();
-    generateOptions2();
-
-</script>
+    <script src="js/script.js"></script>
 </body>
 </html>
