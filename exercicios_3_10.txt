@@ -1,0 +1,155 @@
+3. In the following pairs of sentences, the verb needing replacement in sentences “a” are highlighted in red. 
+        Replace these verbs with the correct phrasal verbs (some sentences have only one word needed and others need more) in red in sentences “b.” 
+        As with the above exercise, <span class="highlight">don’t be concerned if you insert the wrong word(s)!</span> Continue choosing until the correct word(s) are chosen.
+
+        { phrase: "1a. Negotiations between the management and workers ____ when neither side reached an agreement.", answers: ["collapsed"] },
+        { phrase: "1b. Negotiations between the management and workers ____ ____ when neither side reached an agreement.", answers: ["broke", "down"] },
+        { phrase: "2a. Can you ____ the square root of 99?", answers: ["calculate"] },
+        { phrase: "2b.Can you ____ ____ the square root of 99?", answers: ["figure", "out"] },
+        { phrase: "3a. The effects of the drug ____ after a few hours.", answers: ["disappear "] },
+        { phrase: "3b. The effects of the drug ____ ____ after a few hours.", answers: ["wear", "off"] },
+        { phrase: "4a. A lot of people get ____ because of working too much.", answers: ["exhausted"] },
+        { phrase: "4b. A lot of people get ____ ____ because of working too much.", answers: ["burned", "out"] },
+        { phrase: "5a. Despite the dangers of organ transplants, most people ____.", answers: ["recover"] },
+        { phrase: "5b. Despite the dangers of organ transplants, most people ____ ____. ", answers: ["pull", "through"] },
+        { phrase: "6a. While negotiating, they were able to ____ the problem.", answers: ["resolve"] },                                                                
+        { phrase: "6b. While negotiating, they were able to ____ ____ the problem.", answers: ["sort", "out"] },
+        { phrase: "7a. When parents decide to ____ ____, their children suffer.", answers: ["live", "apart"] },
+        { phrase: "7b. When parents decide to ____ ____, their children suffer.", answers: ["split", "up"] },
+        { phrase: "8a. On opening night, only a few spectators ____.", answers: ["came"] },
+        { phrase: "8b. On opening night, only a few spectators ____ ____.", answers: ["showed", "up"] },
+        { phrase: "9a. Their Brazilian business partners ____ the deal.", answers: ["stopped"] },
+        { phrase: "9b. Their Brazilian business partners ____ ____ ____ the deal.", answers: ["backed", "out", "of"] },
+        { phrase: "10a. People celebrate New Year’s Day by ____ fireworks.", answers: ["exploding"] },
+        { phrase: "10b. People celebrate New Year’s Day by ____ ____ fireworks.", answers: ["setting", "of"] },
+        { phrase: "11a. New pension plans mean many people will have to ____ working.", answers: ["continue"] },
+        { phrase: "11b. New pension plans mean many people will have to ____ ____ working.", answers: ["keep", "on"] },
+        { phrase: "12a. The plans were ____ because committee members disagreed.", answers: ["delayed"] },
+        { phrase: "12b. The plans were ____ ____ because committee members disagreed.", answers: ["held", "up"] }
+
+
+
+4. Articles/identifier are words that identify and are connected to nouns. The following sentences are without an article/identifier. 
+        Select and place the correct article/identifier in each of the following sentences.</br>
+
+        Here are the grammar rules: The identifier/article “a” is (followed by) connected to nouns that begin with a consonant;</br> 
+        The identifier/article “an” is connected to nouns that begin the <span class="highlight">SOUND</span> of a vowel;</br> 
+        The identifier/article “the” is connected to a noun beginning with a consonant or the sound of a vowel, and when the noun is specific or particular, 
+        whether singular or plural.   
+
+        { phrase: "____ dog is barking loudly outside.", answers: ["The"] },
+        { phrase: "She found ____ book on the table.", answers: ["a"] },
+        { phrase: "There is ____ apple in ____ basket.", answers: ["an", "the"] },
+        { phrase: "____ sky is clear today.", answers: ["The"] },
+        { phrase: "I need ____ new pair of shoes.", answers: ["a"] },
+        { phrase: "She adopted ____ elephant at ____ zoo.", answers: ["an", "the"] },
+        { phrase: "He borrowed ____ pen from ____ teacher.", answers: ["a", "the"] },
+        { phrase: "I saw ____ interesting movie last night.", answers: ["an"] },
+        { phrase: "____ pizza that we ordered was delicious.", answers: ["The"] },
+        { phrase: "There is ____ big tree in ____ park.", answers: ["a", "the"] }  
+
+ 
+5. This exercise introduces you to a random conversation between two people who don’t know each other. Select the correct missing words.   
+
+        { phrase: "<strong>Gilberto:</strong> Hi, ____ name is Gilberto. It is nice ____ meet you. ____ is your name?", answers: ["my", "to", "What"] },		
+        { phrase: "<strong>Ana:</strong> Hi, Gilberto. It’s nice to ____ you ____. My name ____ Ana.", answers: ["meet", "too", "is"] },
+        { phrase: "<strong>Gilberto:</strong> Hi, Ana: ____ do you ____?", answers: ["Where", "live"] },
+        { phrase: "<strong>Ana:</strong> I live ____ Chicago. Where ____ you live?", answers: ["in", "do"] },
+        { phrase: "<strong>Gilberto:</strong> I live in Chicago too. Do you ____ living ____?", answers: ["like", "here"] },
+        { phrase: "<strong>Ana:</strong> ____, I love ____. The weather ____ very nice, especially ____ the summer. Do ____ like it here?", answers: ["Yes", "it", "is", "in", "you"] },
+        { phrase: "<strong>Gilberto:</strong> Yes, I do. It’s hot here ____ July ____ I like hot ____.", answers: ["in", "and", "weather"] },
+        { phrase: "<strong>Ana:</strong> ____ you been to Lake Michigan? It’s very large ____ the water temperature ____ cold!", answers: ["Have", "but", "is"] },
+        { phrase: "<strong>Gilberto:</strong> No, ____ yet. Maybe ____ ____ go together. ____ you interested?", answers: ["not", "we", "can", "Are"] },
+        { phrase: "<strong>Ana:</strong> Yes, I’m interested. Can we go ____ Saturday?", answers: ["this"] },
+        { phrase: "<strong>Gilberto:</strong> That’s perfect. See you ____.", answers: ["then"] } 
+
+
+
+6.This exercise is to introduce you to the English use of contractions. 
+
+        { phrase: "____ going to the store later, and ____ got a long list of things to buy. ", answers: ["I'm", "I've"] }, 
+        { phrase: "____ been a while since I last went, and ____ in need of almost everything. ", answers: ["I's", "I'm"] },
+        { phrase: "____ like to purchase some snacks and also some chips or cookies, because I think", answers: ["I'd"] },
+        { phrase: "____ be needed during this week. ____ it interesting how quickly food disappears from the kitchen? ", answers: ["they’ll", "Isn't"] },
+        { phrase: "____ be spending a lot of money but ____ okay since ____ going to be a party at my", answers: ["I'll", "that’s", "there’s"] },
+        { phrase: " house next weekend. While ____ out shopping, ____ probably a good idea to put gas in my car.  ", answers: ["I’m", "it’s"] },
+        { phrase: "____ like to go to the nearest gas station, but ____ not possible because the grocery store is far from my home. ", answers: ["I’d", "that’s"] },
+        { phrase: "Who knows how ____ get there if I run out of gas! ____ nervous about driving my car when ____ cold outside running out of gas ____ very smart. ", answers: ["I’ll", "I’m", "it’s", "isn’t"] }
+
+
+7. Understanding English verb tenses is easier than Portuguese verb tenses since English verbs are gender-neutral and do not change regardless of nouns. In this paragraph, choose the correct verb tense, 
+but be aware that some are irregular verbs. The grammar rules: When regular verbs are past-tense, an “-ed” is added to the end of the verb. However, the spelling of irregular verbs change when they are conjugated.  
+
+
+        { phrase: "Last weekend, my family and I ____ to the countryside to ____ my uncle. We ____ for two hours to reach his small farmhouse. When we ____, my uncle ____ us with a big hug. He ____ us around his farm, where he ____ vegetables and ____ some animals. I ____ chickens, cows, and even a horse. My sister ____ the chickens, and they quickly ____ the corn she gave them. My uncle then ____ us to his vegetable garden, where he ____ tomatoes, carrots, and peppers. I ____ a few ripe tomatoes, and they ____ so fresh. Later, we all ____  under a big tree and ____ lunch together. My aunt had ____ sandwiches, and we ____ them with fresh milk from their cows. After lunch, my dad and uncle ____ a game of cards while we ____. My sister and I ____ to walk around the field and explore more. We ____ a little pond and ____ stones on the water. When the sun ____ to set, we ____ it was time to leave. We ____ goodbye to my uncle and aunt, and then we ____ back home, feeling happy and relaxed. It ____ awonderful day, and I hope we can ____ them again soon!", answers: ["went", "visit", "drove", "arrived", "welcomed", "showed", "grows", "keeps", "saw", "fed", "ate", "took", "grows", "picked", "smelled", "sat", "ate", "made", "enjoyed", "played", "watched", "decided", "found", "skipped", "began", "knew", "said", "drove", "was", "visit"] }     
+
+
+
+8. English interrogatives are used to obtain information from someone or about something. 
+        These interrogatives are popularly known as the “Five Ws and H” words. Choose the correct interrogative words for each sentence.  
+
+{ phrase: "____ is your favorite color?", answers: ["What"] },
+        { phrase: "____ do you live?", answers: ["Where"] },
+        { phrase: "____ did you arrive?", answers: ["When"] },
+        { phrase: "____ are you studying English?", answers: ["Why"] },
+        { phrase: "____ do you make a cake?", answers: ["How"] },
+        { phrase: "____ is your best friend?", answers: ["Who"] },
+        { phrase: "____ book did you read last?", answers: ["What"] },
+        { phrase: "____ many siblings do you have?", answers: ["How"] },
+        { phrase: "____ much does this shirt cost?", answers: ["How"] },
+        { phrase: "____ kind of movies do you like?", answers: ["What"] },
+        { phrase: "____ did you go on vacation?", answers: ["Where"] },
+        { phrase: "____ will you finish your project?", answers: ["When"] },
+        { phrase: "____ often do you exercise?", answers: ["How"] },
+        { phrase: "____ taught you to play the guitar?", answers: ["Who"] },
+        { phrase: "____ did you decide to learn a new language?", answers: ["Why"] },
+        { phrase: "____ time does the class start?", answers: ["What"] },
+        { phrase: "____ long have you been living here?", answers: ["How"] },
+        { phrase: "____ restaurant do you recommend?", answers: ["What"] },
+        { phrase: "____ can I help you with this problem?", answers: ["How"] },
+        { phrase: "____ does this bag belong to?", answers: ["Who"] }
+     
+
+
+9. Are you confused about when and how to use “to, too, and two?” Don’t be! Many Americans also mistakenly use the wrong words – especially “to” and “too.”
+
+        { phrase: "I want ____ go ____ the park today.", answers: ["to", "to"] },
+        { phrase: "She is ____ tired ____ walk any farther.", answers: ["too", "to"] },
+        { phrase: "We bought ____ tickets ____ the concert.", answers: ["two", "to"] },
+        { phrase: "This soup is ____ hot ____ eat right now.", answers: ["too", "to"] },
+        { phrase: "He invited his ____ friends ____ the game.", answers: ["two", "to"] },
+        { phrase: "I have ____ finish my homework before ____ o'clock.", answers: ["to", "two"] },
+        { phrase: "It’s ____ early ____ start cooking dinner.", answers: ["too", "to"] },
+        { phrase: "They decided ____ bring ____ cakes for the party.", answers: ["to", "two"] },
+        { phrase: "The car is ____ expensive ____ buy right now.", answers: ["too", "to"] },
+        { phrase: "She gave me ____ reasons why she wants ____ move.", answers: ["two", "to"] },
+        { phrase: "He has ____ leave by ____ in the afternoon.", answers: ["to", "two"] },
+        { phrase: "This room is ____ small ____ fit everyone.", answers: ["too", "to"] },
+        { phrase: "We need ____ buy ____ more chairs for the table.", answers: ["to", "two"] },
+        { phrase: "It was ____ late ____ change our plans.", answers: ["too", "to"] },
+        { phrase: "I have ____ exams ____ study for this week.", answers: ["two", "to"] },
+        { phrase: "She was ____ busy ____ answer the phone.", answers: ["too", "to"] },
+        { phrase: "He brought ____ books ____ read on the plane.", answers: ["two", "to"] },
+        { phrase: "We went ____ the store ____ buy ____ bottles of water.", answers: ["to", "to", "two"] },
+        { phrase: "The coffee is ____ bitter for my taste.", answers: ["too"] },
+        { phrase: "They gave ____ awards ____ the best performers.", answers: ["two", "to"] }
+
+10. “Much” or “Many” to describe an amount of something?
+        Grammar rules: Use “many” for countable nouns and “much” for a large quantity/uncountable of one type.
+        Choose the correct word for each sentence.        
+
+        { phrase: "I have ____ friends.", answers: ["many"] },
+        { phrase: "How ____ is this apple?", answers: ["much"] },
+        { phrase: "She drinks ____ water every day.", answers: ["much"] },
+        { phrase: "There are ____ books in the library.", answers: ["many"] },
+        { phrase: "How ____ cats do you see?", answers: ["many"] },
+        { phrase: "We don't have ____ time.", answers: ["much"] },
+        { phrase: "There are ____ stars in the sky.", answers: ["many"] },
+        { phrase: "I don't eat ____ candy.", answers: ["much"] },
+        { phrase: "How ____ pencils do you have?", answers: ["many"] },
+        { phrase: "He doesn't have ____ toys.", answers: ["many"] },
+        { phrase: "There isn't ____ milk in the fridge.", answers: ["much"] },
+        { phrase: "How ____ days are in a week?", answers: ["many"] },
+        { phrase: "We need ____ chairs for the party.", answers: ["many"] },
+        { phrase: "She doesn’t spend ____ money.", answers: ["much"] },
+        { phrase: "There are ____ flowers in the garden.", answers: ["many"] }
