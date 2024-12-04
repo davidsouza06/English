@@ -33,7 +33,7 @@ const exercises3 = [
         { phrase: "1b. Negotiations between the management and workers ____ ____ when neither side reached an agreement.", answers: ["broke", "down"] },
         { phrase: "2a. Can you ____ the square root of 99?", answers: ["calculate"] },
         { phrase: "2b.Can you ____ ____ the square root of 99?", answers: ["figure", "out"] },
-        { phrase: "3a. The effects of the drug ____ after a few hours.", answers: ["disappear "] },
+        { phrase: "3a. The effects of the drug ____ after a few hours.", answers: ["disappeared "] },
         { phrase: "3b. The effects of the drug ____ ____ after a few hours.", answers: ["wear", "off"] },
         { phrase: "4a. A lot of people get ____ because of working too much.", answers: ["exhausted"] },
         { phrase: "4b. A lot of people get ____ ____ because of working too much.", answers: ["burned", "out"] },
@@ -48,7 +48,7 @@ const exercises3 = [
         { phrase: "9a. Their Brazilian business partners ____ the deal.", answers: ["stopped"] },
         { phrase: "9b. Their Brazilian business partners ____ ____ ____ the deal.", answers: ["backed", "out", "of"] },
         { phrase: "10a. People celebrate New Year’s Day by ____ fireworks.", answers: ["exploding"] },
-        { phrase: "10b. People celebrate New Year’s Day by ____ ____ fireworks.", answers: ["setting", "of"] },
+        { phrase: "10b. People celebrate New Year’s Day by ____ ____ fireworks.", answers: ["setting", "off"] },
         { phrase: "11a. New pension plans mean many people will have to ____ working.", answers: ["continue"] },
         { phrase: "11b. New pension plans mean many people will have to ____ ____ working.", answers: ["keep", "on"] },
         { phrase: "12a. The plans were ____ because committee members disagreed.", answers: ["delayed"] },
@@ -84,7 +84,7 @@ const exercises5 = [
 
 const exercises6 = [
     { phrase: "____ going to the store later, and ____ got a long list of things to buy. ", answers: ["I'm", "I've"] }, 
-    { phrase: "____ been a while since I last went, and ____ in need of almost everything. ", answers: ["I's", "I'm"] },
+    { phrase: "____ been a while since I last went, and ____ in need of almost everything. ", answers: ["It's", "I'm"] },
     { phrase: "____ like to purchase some snacks and also some chips or cookies, because I think", answers: ["I'd"] },
     { phrase: "____ be needed during this week. ____ it interesting how quickly food disappears from the kitchen? ", answers: ["they’ll", "Isn't"] },
     { phrase: "____ be spending a lot of money but ____ okay since ____ going to be a party at my", answers: ["I'll", "that’s", "there’s"] },
@@ -94,7 +94,7 @@ const exercises6 = [
 ]
 
 const exercises7 = [
-    { phrase: "Last weekend, my family and I ____ to the countryside to ____ my uncle. We ____ for two hours to reach his small farmhouse. When we ____, my uncle ____ us with a big hug. He ____ us around his farm, where he ____ vegetables and ____ some animals. I ____ chickens, cows, and even a horse. My sister ____ the chickens, and they quickly ____ the corn she gave them. My uncle then ____ us to his vegetable garden, where he ____ tomatoes, carrots, and peppers. I ____ a few ripe tomatoes, and they ____ so fresh. Later, we all ____  under a big tree and ____ lunch together. My aunt had ____ sandwiches, and we ____ them with fresh milk from their cows. After lunch, my dad and uncle ____ a game of cards while we ____. My sister and I ____ to walk around the field and explore more. We ____ a little pond and ____ stones on the water. When the sun ____ to set, we ____ it was time to leave. We ____ goodbye to my uncle and aunt, and then we ____ back home, feeling happy and relaxed. It ____ awonderful day, and I hope we can ____ them again soon!", answers: ["went", "visit", "drove", "arrived", "welcomed", "showed", "grows", "keeps", "saw", "fed", "ate", "took", "grows", "picked", "smelled", "sat", "ate", "made", "enjoyed", "played", "watched", "decided", "found", "skipped", "began", "knew", "said", "drove", "was", "visit"] }     
+    { phrase: "Last weekend, my family and I ____ to the countryside to ____ my uncle. We ____ for two hours to reach his small farmhouse. When we ____, my uncle ____ us with a big hug. He ____ us around his farm, where he ____ vegetables and ____ some animals. I ____ chickens, cows, and even a horse. My sister ____ the chickens, and they quickly ____ the corn she gave them. My uncle then ____ us to his vegetable garden, where he ____ tomatoes, carrots, and peppers. I ____ a few ripe tomatoes, and they ____ so fresh. Later, we all ____  under a big tree and ____ lunch together. My aunt had ____ sandwiches, and we ____ them with fresh milk from their cows. After lunch, my dad and uncle ____ a game of cards while we ____. My sister and I ____ to walk around the field and explore more. We ____ a little pond and ____ stones on the water. When the sun ____ to set, we ____ it was time to leave. We ____ goodbye to my uncle and aunt, and then we ____ back home, feeling happy and relaxed. It ____ a wonderful day, and I hope we can ____ them again soon!", answers: ["went", "visit", "drove", "arrived", "welcomed", "showed", "grows", "keeps", "saw", "fed", "ate", "took", "grows", "picked", "smelled", "sat", "ate", "made", "enjoyed", "played", "watched", "decided", "found", "skipped", "began", "knew", "said", "drove", "was", "visit"] }     
 ]
 
 const exercises8 = [
@@ -346,13 +346,129 @@ function toggleTranslation() {
     if (isTranslated) {
         exerciseText.innerHTML = `1. Understanding and using English phrasal verbs will help you improve your fluency. This exercise is designed for that purpose. 
         “Drag and drop” the correct word (some of these sentences require two separate words) to complete every sentence. 
-        <span class="highlight">Don’t worry if you select the wrong word(s)!</span> This exercise will immediately let you know if your chose the correct or incorrect words. 
+        <span class="highlight">Don’t worry if you select the wrong word(s)!</span> This exercise will immediately let you know if you chose the correct or incorrect words. 
         If you chose incorrectly, you will be able to reselect. The meaning of the needed phrasal verbs is in parentheses beside the empty box.`;
     } else {
         exerciseText.innerHTML = `1. Compreender e usar verbos frasais em inglês ajudará você a melhorar sua fluência. Este exercício foi projetado para esse propósito. 
         “Arraste e solte” a palavra correta (algumas dessas frases exigem duas palavras separadas) para completar cada frase. 
         <span class="highlight">Não se preocupe se você selecionar a palavra(s) errada(s)!</span> Este exercício imediatamente lhe dirá se você escolheu as palavras corretas ou incorretas. 
         Se você escolheu incorretamente, poderá selecionar novamente. O significado dos verbos frasais necessários está entre parênteses ao lado da caixa vazia.`;
+    }
+    isTranslated = !isTranslated; // Alterna o estado da tradução
+}
+
+function toggleTranslation2() {
+    const exerciseText = document.getElementById('exercise-text2');
+    if (isTranslated) {
+        exerciseText.innerHTML = `Exercise 2`;
+    } else {
+        exerciseText.innerHTML = `Exercício 2`;
+    }
+    isTranslated = !isTranslated; // Alterna o estado da tradução
+}
+
+function toggleTranslation3() {
+    const exerciseText = document.getElementById('exercise-text3');
+    if (isTranslated) {
+        exerciseText.innerHTML = `3. In the following pairs of sentences, the verb needing replacement in sentences “a” are highlighted in red. 
+        Replace these verbs with the correct phrasal verbs (some sentences have only one word needed and others need more) in red in sentences “b.” 
+        As with the above exercise, <span class="highlight">don’t be concerned if you insert the wrong word(s)!</span> Continue choosing until the correct word(s) are chosen.`;
+    } else {
+        exerciseText.innerHTML = `3. Nos pares de sentenças seguintes, os verbos que precisam ser substituídos nas sentenças “a” estão destacados em vermelho. 
+        Substitua esses verbos pelos verbos frasais corretos (algumas sentenças têm apenas uma palavra necessária e outras precisam de mais) em vermelho nas sentenças “b”. 
+        Tal como acontece com o exercício acima, <span class="highlight">não se preocupe se inserir a(s) palavra(s) errada(s)!</span> Continue escolhendo até que as palavras corretas sejam escolhidas.`;
+    }
+    isTranslated = !isTranslated; // Alterna o estado da tradução
+}
+
+function toggleTranslation4() {
+    const exerciseText = document.getElementById('exercise-text4');
+    if (isTranslated) {
+        exerciseText.innerHTML = `4. Articles/identifiers are words that identify and are connected to nouns. The following sentences are without an article/identifier. 
+                        Select and place the correct article/identifier in each of the following sentences.</br>
+                
+                        Here are the grammar rules: The identifier/article “a” is (followed by) connected to nouns that begin with a consonant;</br> 
+                        The identifier/article “an” is connected to nouns that begin the <span class="highlight">SOUND</span> of a vowel;</br> 
+                        The identifier/article “the” is connected to a noun beginning with a consonant or the sound of a vowel, and when the noun is specific or particular, 
+                        whether singular or plural.`;
+    } else {
+        exerciseText.innerHTML = `4. Artigos/identificadores são palavras que identificam e estão conectadas a substantivos. As frases a seguir não têm artigo/identificador. 
+        Selecione e coloque o artigo/identificador correto em cada uma das frases a seguir.</br>
+
+        Aqui estão as regras gramaticais: O identificador/artigo “a” é (seguido por) conectado a substantivos que começam com uma consoante;</br> 
+        O identificador/artigo “an” é conectado a substantivos que começam com o SOM de uma vogal;</br> 
+        O identificador/artigo “the” é conectado a um substantivo que começa com uma consoante ou o som de uma vogal, e quando o substantivo é específico ou particular, seja singular ou plural.`;
+    }
+    isTranslated = !isTranslated; // Alterna o estado da tradução
+}
+
+function toggleTranslation5() {
+    const exerciseText = document.getElementById('exercise-text5');
+    if (isTranslated) {
+        exerciseText.innerHTML = `5. This exercise introduces you to a random conversation between two people who don’t know each other. Select the correct missing words.`;
+    } else {
+        exerciseText.innerHTML = `5. Este exercício apresenta a você uma conversa aleatória entre duas pessoas que não se conhecem. Selecione as palavras corretas que faltam.`;
+    }
+    isTranslated = !isTranslated; // Alterna o estado da tradução
+}
+
+function toggleTranslation6() {
+    const exerciseText = document.getElementById('exercise-text6');
+    if (isTranslated) {
+        exerciseText.innerHTML = `6. This exercise is to introduce you to the English use of contractions. 
+    Contractions combine nouns/pronouns with verbs/auxiliary verbs (including “not”), and are commonly used in conversations and informal writing.`;
+    } else {
+        exerciseText.innerHTML = `6. Este exercício é para introduzir você ao uso de contrações em inglês. As contrações combinam substantivos/pronomes com verbos/verbos auxiliares (incluindo “not”), e são comumente usadas em conversas e escrita informal.`;
+    }
+    isTranslated = !isTranslated; // Alterna o estado da tradução
+}
+
+function toggleTranslation7() {
+    const exerciseText = document.getElementById('exercise-text7');
+    if (isTranslated) {
+        exerciseText.innerHTML = `7. Understanding English verb tenses is easier than Portuguese verb tenses since English verbs are gender-neutral and do not change regardless of nouns. In this paragraph, choose the correct verb tense, but be aware that some are irregular verbs.</p>
+    The grammar rules: When regular verbs are past tense, an “-ed” is added to the end of the verb. However, the spelling of irregular verbs change when they are conjugated.`;
+    } else {
+        exerciseText.innerHTML = `7. Entender os tempos verbais em inglês é mais fácil do que os tempos verbais em português, já que os verbos em inglês são neutros em termos de gênero e não mudam independentemente dos substantivos. Neste parágrafo, escolha o tempo verbal correto, mas esteja ciente de que alguns são verbos irregulares.</p>
+As regras gramaticais: Quando os verbos regulares estão no passado, um “-ed” é adicionado ao final do verbo. No entanto, a grafia dos verbos irregulares muda quando eles são conjugados.`;
+    }
+    isTranslated = !isTranslated; // Alterna o estado da tradução
+}
+
+function toggleTranslation8() {
+    const exerciseText = document.getElementById('exercise-text8');
+    if (isTranslated) {
+        exerciseText.innerHTML = `8. English interrogatives are used to obtain information from someone or about something. 
+        These interrogatives are popularly known as the “Five Ws and H” words. Choose the correct interrogative words for each sentence.`;
+    } else {
+        exerciseText.innerHTML = `8. Interrogativas em inglês são usadas para obter informações de alguém ou sobre algo. 
+        Essas interrogativas são popularmente conhecidas como as palavras “Five Ws and H”. Escolha as palavras interrogativas corretas para cada frase.`;
+    }
+    isTranslated = !isTranslated; // Alterna o estado da tradução
+}
+
+function toggleTranslation9() {
+    const exerciseText = document.getElementById('exercise-text9');
+    if (isTranslated) {
+        exerciseText.innerHTML = `9. Are you confused about when and how to use “to, too, and two?” Don’t be! Many Americans also mistakenly use the wrong words – especially “to” and “too.”</p>
+      Grammar rules: “to” indicates direction and is also a preposition; “too” is identical to “also,” and also describes an excessive amount of something; and “two” = “2.”`;
+    } else {
+        exerciseText.innerHTML = `9. Você está confuso sobre quando e como usar “to, too, and two?” Não fique! Muitos americanos também usam erroneamente as palavras erradas – especialmente “to” e “too.</p>
+Regras gramaticais: “to” indica direção e também é uma preposição, enquanto “too” é idêntico a “also” e também descreve uma quantidade excessiva de algo. “Two” = “2”`;
+    }
+    isTranslated = !isTranslated; // Alterna o estado da tradução
+}
+
+function toggleTranslation10() {
+    const exerciseText = document.getElementById('exercise-text10');
+    if (isTranslated) {
+        exerciseText.innerHTML = `10. “Much” or “Many” to describe an amount of something?</br>
+       Grammar rules: Use “many” for countable nouns and “much” for a large quantity/uncountable of one type.</br>
+       Choose the correct word for each sentence.`;
+    } else {
+        exerciseText.innerHTML = `10. Much” ou “Many” para descrever uma quantidade de algo?</br>
+        Regras gramaticais: Use “many” para substantivos contáveis ​​e “much” para uma grande quantidade/incontável de um tipo.</br>
+        Escolha a palavra correta para cada frase.`;
     }
     isTranslated = !isTranslated; // Alterna o estado da tradução
 }
