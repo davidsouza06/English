@@ -19,7 +19,7 @@ const exercises = [
     { phrase: "We went ____ the store ____ buy ____ bottles of water.", answers: ["to", "to", "two"] },
     { phrase: "The coffee is ____ bitter for my taste.", answers: ["too"] },
     { phrase: "They gave ____ awards ____ the best performers.", answers: ["two", "to"] }
-]
+];
 
 let allOptions = shuffleAnswers(exercises);
 
@@ -99,6 +99,8 @@ function handleDrop(event, exerciseList, options, removedOptions, pageId) {
     const dropboxId = event.target.id;
     const [exerciseIndex, answerIndex] = dropboxId.split('-').slice(1).map(Number);
     const correctAnswers = exerciseList[exerciseIndex]?.answers || [];
+    // Obtém a resposta correta para a posição específica
+    const expectedAnswer = correctAnswers[answerIndex];
 
     // Atualiza o conteúdo do espaço de drop
     event.target.innerHTML = data;
@@ -124,11 +126,14 @@ function handleDrop(event, exerciseList, options, removedOptions, pageId) {
     console.log("removedOptions:", removedOptionsByPage);
 
     // Aplica a classe de feedback e estilos
-    if (correctAnswers.includes(data)) {
-        event.target.classList.add('correct');
+    
+
+// Aplica a classe de feedback e estilos
+     if (data === expectedAnswer) {
+    event.target.classList.add('correct');
     } else {
-        event.target.classList.add('incorrect');
-        addRemoveButton(event.target, data, pageId);
+    event.target.classList.add('incorrect');
+    addRemoveButton(event.target, data, pageId);
     }
 }
 
