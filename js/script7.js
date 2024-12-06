@@ -1,7 +1,11 @@
 const exercises = [
-    { phrase: "Last weekend, my family and I ____ to the countryside to ____ my uncle. We ____ for two hours to reach his small farmhouse. When we ____, my uncle ____ us with a big hug. He ____ us around his farm, where he ____ vegetables and ____ some animals. I ____ chickens, cows, and even a horse. My sister ____ the chickens, and they quickly ____ the corn she gave them. My uncle then ____ us to his vegetable garden, where he ____ tomatoes, carrots, and peppers. I ____ a few ripe tomatoes, and they ____ so fresh. Later, we all ____  under a big tree and ____ lunch together. My aunt had ____ sandwiches, and we ____ them with fresh milk from their cows. After lunch, my dad and uncle ____ a game of cards while we ____. My sister and I ____ to walk around the field and explore more. We ____ a little pond and ____ stones on the water. When the sun ____ to set, we ____ it was time to leave. We ____ goodbye to my uncle and aunt, and then we ____ back home, feeling happy and relaxed. It ____ a wonderful day, and I hope we can ____ them again soon!", answers: ["went", "visit", "drove", "arrived", "welcomed", "showed", "grows", "keeps", "saw", "fed", "ate", "took", "grows", "picked", "smelled", "sat", "ate", "made", "enjoyed", "played", "watched", "decided", "found", "skipped", "began", "knew", "said", "drove", "was", "visit"] }     
-
-]
+    { phrase: "Last weekend, my family and I ____ to the countryside to ____ my uncle. We ____ for two hours to reach his small farmhouse. When we ____, my uncle ____ us with a big hug.", answers: ["went", "visit", "drove", "arrived", "welcomed"] }, 
+    { phrase: "He ____ us around his farm, where he ____ vegetables and ____ some animals. I ____ chickens, cows, and even a horse. My sister ____ the chickens, and they quickly ____ the corn she gave them.", answers: ["showed", "grows", "keeps", "saw", "fed", "ate"] }, 
+    { phrase: "My uncle then ____ us to his vegetable garden, where he ____ tomatoes, carrots, and peppers. I ____ a few ripe tomatoes, and they ____ so fresh. Later, we all ____  under a big tree and ____ lunch together.", answers: ["took", "grows", "picked", "smelled", "sat", "ate"] },
+    { phrase: "My aunt had ____ sandwiches, and we ____ them with fresh milk from their cows. After lunch, my dad and uncle ____ a game of cards while we ____. My sister and I ____ to walk around the field and explore more.", answers: ["made", "enjoyed", "played", "watched", "decided"] },
+    { phrase: "We ____ a little pond and ____ stones on the water. When the sun ____ to set, we ____ it was time to leave. We ____ goodbye to my uncle and aunt, and then we ____ back home, feeling happy and relaxed.", answers: ["found", "skipped", "began", "knew", "said", "drove"] },
+    { phrase: "It ____ a wonderful day, and I hope we can ____ them again soon!", answers: ["was", "visit"] }     
+];
 
 let allOptions = shuffleAnswers(exercises);
 
@@ -81,6 +85,7 @@ function handleDrop(event, exerciseList, options, removedOptions, pageId) {
     const dropboxId = event.target.id;
     const [exerciseIndex, answerIndex] = dropboxId.split('-').slice(1).map(Number);
     const correctAnswers = exerciseList[exerciseIndex]?.answers || [];
+    const expectedAnswer = correctAnswers[answerIndex];
 
     // Atualiza o conteúdo do espaço de drop
     event.target.innerHTML = data;
@@ -106,9 +111,9 @@ function handleDrop(event, exerciseList, options, removedOptions, pageId) {
     console.log("removedOptions:", removedOptionsByPage);
 
     // Aplica a classe de feedback e estilos
-    if (correctAnswers.includes(data)) {
+    if (data === expectedAnswer) {
         event.target.classList.add('correct');
-    } else {
+        } else {
         event.target.classList.add('incorrect');
         addRemoveButton(event.target, data, pageId);
     }
