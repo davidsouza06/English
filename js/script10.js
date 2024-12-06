@@ -167,7 +167,7 @@ function toggleTranslation() {
        Grammar rules: Use “many” for countable nouns and “much” for a large quantity/uncountable of one type.</br>
        Choose the correct word for each sentence.`;
     } else {
-        exerciseText.innerHTML = `10. Much” ou “Many” para descrever uma quantidade de algo?</br>
+        exerciseText.innerHTML = `10. “Much” ou “Many” para descrever uma quantidade de algo?</br>
         Regras gramaticais: Use “many” para substantivos contáveis ​​e “much” para uma grande quantidade/incontável de um tipo.</br>
         Escolha a palavra correta para cada frase.`;
     }
