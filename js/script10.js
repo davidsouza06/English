@@ -94,6 +94,7 @@ function handleDrop(event, exerciseList, options, removedOptions, pageId) {
     const dropboxId = event.target.id;
     const [exerciseIndex, answerIndex] = dropboxId.split('-').slice(1).map(Number);
     const correctAnswers = exerciseList[exerciseIndex]?.answers || [];
+    const expectedAnswer = correctAnswers[answerIndex];
 
     // Atualiza o conteúdo do espaço de drop
     event.target.innerHTML = data;
@@ -119,9 +120,9 @@ function handleDrop(event, exerciseList, options, removedOptions, pageId) {
     console.log("removedOptions:", removedOptionsByPage);
 
     // Aplica a classe de feedback e estilos
-    if (correctAnswers.includes(data)) {
+    if (data === expectedAnswer) {
         event.target.classList.add('correct');
-    } else {
+        } else {
         event.target.classList.add('incorrect');
         addRemoveButton(event.target, data, pageId);
     }
@@ -167,7 +168,7 @@ function toggleTranslation() {
        Grammar rules: Use “many” for countable nouns and “much” for a large quantity/uncountable of one type.</br>
        Choose the correct word for each sentence.`;
     } else {
-        exerciseText.innerHTML = `10. “Much” ou “Many” para descrever uma quantidade de algo?</br>
+        exerciseText.innerHTML = `10. Much” ou “Many” para descrever uma quantidade de algo?</br>
         Regras gramaticais: Use “many” para substantivos contáveis ​​e “much” para uma grande quantidade/incontável de um tipo.</br>
         Escolha a palavra correta para cada frase.`;
     }
