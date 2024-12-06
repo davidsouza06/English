@@ -4,7 +4,7 @@ const exercises = [
         { phrase: "2a. Can you <b><span class='highlight'>calculate</span></b> the square root of 99?", answers: [] },
         { phrase: "2b.Can you ____ ____ the square root of 99?", answers: ["figure", "out"] },
         { phrase: "3a. The effects of the drug <b><span class='highlight'>disappeared</span></b> after a few hours.", answers: [] },
-        { phrase: "3b. The effects of the drug ____ ____ after a few hours.", answers: ["wear", "off"] },
+        { phrase: "3b. The effects of the drug ____ ____ after a few hours.", answers: ["wore", "off"] },
         { phrase: "4a. A lot of people get <b><span class='highlight'>exhausted</span></b> because of working too much.", answers: [] },
         { phrase: "4b. A lot of people get ____ ____ because of working too much.", answers: ["burned", "out"] },
         { phrase: "5a. Despite the dangers of organ transplants, most people <b><span class='highlight'>recover</span></b>.", answers: [] },
@@ -103,6 +103,7 @@ function handleDrop(event, exerciseList, options, removedOptions, pageId) {
     const dropboxId = event.target.id;
     const [exerciseIndex, answerIndex] = dropboxId.split('-').slice(1).map(Number);
     const correctAnswers = exerciseList[exerciseIndex]?.answers || [];
+    const expectedAnswer = correctAnswers[answerIndex];
 
     // Atualiza o conteúdo do espaço de drop
     event.target.innerHTML = data;
@@ -128,9 +129,9 @@ function handleDrop(event, exerciseList, options, removedOptions, pageId) {
     console.log("removedOptions:", removedOptionsByPage);
 
     // Aplica a classe de feedback e estilos
-    if (correctAnswers.includes(data)) {
+    if (data === expectedAnswer) {
         event.target.classList.add('correct');
-    } else {
+        } else {
         event.target.classList.add('incorrect');
         addRemoveButton(event.target, data, pageId);
     }
