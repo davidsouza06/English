@@ -1,12 +1,15 @@
 const exercises = [
-    { phrase: "____ going to the store later, and ____ got a long list of things to buy. ", answers: ["I'm", "I've"] }, 
-    { phrase: "____ been a while since I last went, and ____ in need of almost everything. ", answers: ["It's", "I'm"] },
-    { phrase: "____ like to purchase some snacks and also some chips or cookies, because I think", answers: ["I'd"] },
-    { phrase: "____ be needed during this week. ____ it interesting how quickly food disappears from the kitchen? ", answers: ["they'll", "Isn't"] },
-    { phrase: "____ be spending a lot of money but ____ okay since ____ going to be a party at my", answers: ["I'll", "that's", "there's"] },
-    { phrase: " house next weekend. While ____ out shopping, ____ probably a good idea to put gas in my car.  ", answers: ["I'm", "it's"] },
-    { phrase: "____ like to go to the nearest gas station, but ____ not possible because the grocery store is far from my home. ", answers: ["I'd", "that's"] },
-    { phrase: "Who knows how ____ get there if I run out of gas! ____ nervous about driving my car when ____ cold outside. Running out of gas ____ very smart. ", answers: ["I'll", "I'm", "it's", "isn't"] }
+    { phrase: "<strong>Gilberto:</strong> Hi, ____ name is Gilberto. It is nice ____ meet you. ____ is your name?", answers: ["my", "to", "What"] },		
+    { phrase: "<strong>Ana:</strong> Hi, Gilberto. It’s nice to ____ you ____. My name ____ Ana.", answers: ["meet", "too", "is"] },
+    { phrase: "<strong>Gilberto:</strong> Hi, Ana: ____ do you ____?", answers: ["Where", "live"] },
+    { phrase: "<strong>Ana:</strong> I live ____ Chicago. Where ____ you live?", answers: ["in", "do"] },
+    { phrase: "<strong>Gilberto:</strong> I live in Chicago too. Do you ____ living ____?", answers: ["like", "here"] },
+    { phrase: "<strong>Ana:</strong> ____, I love ____. The weather ____ very nice, especially ____ the summer. Do ____ like it here?", answers: ["Yes", "it", "is", "in", "you"] },
+    { phrase: "<strong>Gilberto:</strong> Yes, I do. It’s hot here ____ July ____ I like hot ____.", answers: ["in", "and", "weather"] },
+    { phrase: "<strong>Ana:</strong> ____ you been to Lake Michigan? It’s very large ____ the water temperature ____ cold!", answers: ["Have", "but", "is"] },
+    { phrase: "<strong>Gilberto:</strong> No, ____ yet. Maybe ____ ____ go together. ____ you interested?", answers: ["not", "we", "can", "Are"] },
+    { phrase: "<strong>Ana:</strong> Yes, I’m interested. Can we go ____ Saturday?", answers: ["this"] },
+    { phrase: "<strong>Gilberto:</strong> That’s perfect. See you ____.", answers: ["then"] } 
 ]
 
 let allOptions = shuffleAnswers(exercises);
@@ -157,10 +160,9 @@ let isTranslated = false;
 function toggleTranslation() {
     const exerciseText = document.getElementById('exercise-text');
     if (isTranslated) {
-        exerciseText.innerHTML = `6. This exercise is to introduce you to the English use of contractions. 
-    Contractions combine nouns/pronouns with verbs/auxiliary verbs (including “not”), and are commonly used in conversations and informal writing.`;
+        exerciseText.innerHTML = `5. This exercise introduces you to a random conversation between two people who don’t know each other. Select the correct missing words.`;
     } else {
-        exerciseText.innerHTML = `6. Este exercício é para introduzir você ao uso de contrações em inglês. As contrações combinam substantivos/pronomes com verbos/verbos auxiliares (incluindo “not”), e são comumente usadas em conversas e escrita informal.`;
+        exerciseText.innerHTML = `5. Este exercício apresenta a você uma conversa aleatória entre duas pessoas que não se conhecem. Selecione as palavras corretas que faltam.`;
     }
     isTranslated = !isTranslated; // Alterna o estado da tradução
 }
