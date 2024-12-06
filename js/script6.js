@@ -2,11 +2,11 @@ const exercises = [
     { phrase: "____ going to the store later, and ____ got a long list of things to buy. ", answers: ["I'm", "I've"] }, 
     { phrase: "____ been a while since I last went, and ____ in need of almost everything. ", answers: ["It's", "I'm"] },
     { phrase: "____ like to purchase some snacks and also some chips or cookies, because I think", answers: ["I'd"] },
-    { phrase: "____ be needed during this week. ____ it interesting how quickly food disappears from the kitchen? ", answers: ["they’ll", "Isn't"] },
-    { phrase: "____ be spending a lot of money but ____ okay since ____ going to be a party at my", answers: ["I'll", "that’s", "there’s"] },
-    { phrase: " house next weekend. While ____ out shopping, ____ probably a good idea to put gas in my car.  ", answers: ["I’m", "it’s"] },
-    { phrase: "____ like to go to the nearest gas station, but ____ not possible because the grocery store is far from my home. ", answers: ["I’d", "that’s"] },
-    { phrase: "Who knows how ____ get there if I run out of gas! ____ nervous about driving my car when ____ cold outside running out of gas ____ very smart. ", answers: ["I’ll", "I’m", "it’s", "isn’t"] }
+    { phrase: "____ be needed during this week. ____ it interesting how quickly food disappears from the kitchen? ", answers: ["they'll", "Isn't"] },
+    { phrase: "____ be spending a lot of money but ____ okay since ____ going to be a party at my", answers: ["I'll", "that's", "there's"] },
+    { phrase: " house next weekend. While ____ out shopping, ____ probably a good idea to put gas in my car.  ", answers: ["I'm", "it's"] },
+    { phrase: "____ like to go to the nearest gas station, but ____ not possible because the grocery store is far from my home. ", answers: ["I'd", "that's"] },
+    { phrase: "Who knows how ____ get there if I run out of gas! ____ nervous about driving my car when ____ cold outside. Running out of gas ____ very smart. ", answers: ["I'll", "I'm", "it's", "isn't"] }
 ]
 
 let allOptions = shuffleAnswers(exercises);
@@ -87,6 +87,7 @@ function handleDrop(event, exerciseList, options, removedOptions, pageId) {
     const dropboxId = event.target.id;
     const [exerciseIndex, answerIndex] = dropboxId.split('-').slice(1).map(Number);
     const correctAnswers = exerciseList[exerciseIndex]?.answers || [];
+    const expectedAnswer = correctAnswers[answerIndex];
 
     // Atualiza o conteúdo do espaço de drop
     event.target.innerHTML = data;
@@ -112,9 +113,9 @@ function handleDrop(event, exerciseList, options, removedOptions, pageId) {
     console.log("removedOptions:", removedOptionsByPage);
 
     // Aplica a classe de feedback e estilos
-    if (correctAnswers.includes(data)) {
+    if (data === expectedAnswer) {
         event.target.classList.add('correct');
-    } else {
+        } else {
         event.target.classList.add('incorrect');
         addRemoveButton(event.target, data, pageId);
     }
