@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício Interativo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="exercise-page">
+        <div class="root-container">
+            <div class="container">
+                
+                <!-- Página 1 -->
+                <div id="page1" class="page">
+                    <h3 id="exercise-text">
+                        1. Understanding and using English phrasal verbs will help you improve your fluency. 
+                        This exercise is designed for that purpose. “Drag and drop” the correct word (some of these sentences require two separate words) to complete every sentence.
+                        <span class="highlight">Don’t worry if you select the wrong word(s)!</span> 
+                        This exercise will immediately let you know if your chose the correct or incorrect words. If you chose incorrectly, you will be able to reselect. 
+                        The meaning of the needed phrasal verbs is in parentheses beside the empty box.
+                    </h3>
+                    
+                    <button class="translate-btn" onclick="toggleTranslation()">Traduzir Texto</button>
+
+                    <div class="exercise-wrapper">
+                        <div class="exercise-container" id="exercise-container-1">
+                            <!-- Exercícios serão gerados aqui -->
+                        </div>
+                        <div class="options-container" id="options-container-1" >
+                            <!-- Opções serão geradas aqui -->
+                        </div>
+                    </div>
+                </div>
+
+                <!--Cria um espaçõ entre as opcoes de resposta e o logo--> 
+                <div style="height: 50px;"></div>
+
+                <!-- Logo da Marca -->
+                <img src="img/synergy.webp" alt="Logo da Marca" class="brand-logo">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
