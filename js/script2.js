@@ -91,6 +91,7 @@ function handleDrop(event, exerciseList, options, removedOptions, pageId) {
     const dropboxId = event.target.id;
     const [exerciseIndex, answerIndex] = dropboxId.split('-').slice(1).map(Number);
     const correctAnswers = exerciseList[exerciseIndex]?.answers || [];
+    const expectedAnswer = correctAnswers[answerIndex];
 
     // Atualiza o conteúdo do espaço de drop
     event.target.innerHTML = data;
@@ -116,9 +117,9 @@ function handleDrop(event, exerciseList, options, removedOptions, pageId) {
     console.log("removedOptions:", removedOptionsByPage);
 
     // Aplica a classe de feedback e estilos
-    if (correctAnswers.includes(data)) {
+    if (data === expectedAnswer) {
         event.target.classList.add('correct');
-    } else {
+        } else {
         event.target.classList.add('incorrect');
         addRemoveButton(event.target, data, pageId);
     }
@@ -167,12 +168,18 @@ function toggleTranslation() {
     isTranslated = !isTranslated; // Alterna o estado da tradução
 }
 
-function toggleTranslation2() {
-    const exerciseText = document.getElementById('exercise-text2');
+function toggleTranslation() {
+    const exerciseText = document.getElementById('exercise-text');
     if (isTranslated) {
-        exerciseText.innerHTML = `Exercise 2`;
+        exerciseText.innerHTML = `2. This exercise introduces you to additional commonly used English phrasal verbs. Each sentence provides the formal verb in parentheses. 
+                        Your task is to replace the formal verbs with phrasal verbs. Choosing an incorrect phrasal verb will be indicated by that word becoming red. 
+                        The purpose of this exercise is to grow your vocabulary knowledge and use.</br> 
+                        Be patient, and as with the four other separate exercises in this English course, refer to them often to reinforce your understanding and knowledge.`;
     } else {
-        exerciseText.innerHTML = `Exercício 2`;
+        exerciseText.innerHTML = `2. Este exercício apresenta outros verbos frasais comumente usados ​​em inglês. Cada frase fornece o verbo formal entre parênteses. 
+                        Sua tarefa é substituir os verbos formais por verbos frasais. A escolha de um verbo frasal incorreto será indicada pela palavra ficando vermelha. 
+                        O objetivo deste exercício é aumentar seu conhecimento e uso de vocabulário.</br> 
+                        Seja paciente e, como acontece com os outros quatro exercícios separados deste curso de inglês, consulte-os com frequência para reforçar sua compreensão e conhecimento.`;
     }
     isTranslated = !isTranslated; // Alterna o estado da tradução
 }
