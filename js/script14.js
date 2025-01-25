@@ -21,6 +21,7 @@ const exercises = [
     { phrase: "He promised to explain more details later, saying “_____, we’ll discuss it tomorrow.”", options: ["On the spot", "Hang on a minute", "That's another story"], answer: "That's another story", selectedOption: null, isCorrect: null }
 ];
 
+
 let currentExerciseIndex = 0;
 
 function renderExercise() {
