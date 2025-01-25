@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício Interativo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles3.css">
+</head>
+<body>
+    <div class="exercise-page">
+        <div class="root-container">
+            <div class="container">
+                
+                <!-- Página 1 -->
+                <div id="page1" class="page">
+                    <h3 id="exercise-text">
+                        Exercise 19: Match the idioms with the definition
+                    </h3>
+                    
+                    <button class="translate-btn" onclick="toggleTranslation()">Traduzir Texto</button>
+
+                    <h3>Drag the definitions into the correct boxes:</h3>
+                    <div class="exercise-wrapper">
+                        <div class="exercise-container" id="exercise-container-1">
+                            <!-- Exercícios serão gerados aqui -->
+                        </div>
+                        <div class="options-container" id="options-container-1" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-start;">
+                            <!-- Opções serão geradas aqui -->
+                        </div>
+                    </div>
+                    
+                    <h3>Drag the definitions into the correct boxes:</h3>
+                    <div class="exercise-wrapper">
+                        <div class="exercise-container" id="exercise-container-2">
+                            <!-- Exercícios serão gerados aqui -->
+                        </div>
+                        <div class="options-container" id="options-container-2" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-start;">
+                            <!-- Opções serão geradas aqui -->
+                        </div>
+                    </div>
+                </div>
+
+                <!--Cria um espaçõ entre as opcoes de resposta e o logo--> 
+                <div style="height: 50px;"></div>
+
+                <!-- Logo da Marca -->
+                <img src="img/synergy.webp" alt="Logo da Marca" class="brand-logo">
+
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script19.js"></script>
+</body>
+</html>
