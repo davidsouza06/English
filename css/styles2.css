@@ -1,0 +1,320 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.exercise-page {
+    /* background-image: url('../img/SEB-Word-with-logo.jpg'); */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.root-container {
+    margin: 0 auto;
+    border: 5px solid #2980b9;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    border: 3px solid #2980b9;
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.85);
+    /* border-radius: 10px; */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    width: 1024px;
+    max-width: 1200px;
+    margin: 2px;
+    top: 10%;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+}
+
+h3 {
+    color: #2c3e50;
+    font-size: 1.2em;
+    line-height: 1.4em;
+}
+
+.exercise-wrapper {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.exercise-container {
+    width: 89%;
+    max-width: 1024px;
+}
+
+.phrase {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.dropbox {
+    border: 2px dashed #3498db;
+    width: 90px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    display: inline-block;
+    font-weight: bold;
+    color: #3498db;
+    margin: 0 5px;
+    position: relative;
+}
+
+.option-container {
+    display: flex;
+    flex-direction: column; /* Colocar opções em coluna */
+    gap: 10px; /* Espaçamento entre as opções */
+    margin-top: 20px;
+}
+
+.option {
+    background-color: #e0e0e0; /* Cinza claro */
+    color: #000; /* Texto preto */
+    border: 1px solid #ccc; /* Borda clara */
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-size: 16px;
+}
+
+.option:hover {
+    background-color: #d6d6d6; /* Cinza um pouco mais escuro ao passar o mouse */
+}
+
+.option input[type="radio"] {
+    display: none; /* Oculta o botão de rádio */
+}
+
+.option.selected {
+    background-color: #add8e6; /* Azul claro */
+    color: #3498db; /* Texto azul */
+    font-weight: bold; /* Negrito ao selecionar */
+}
+
+.option.correct {
+    background-color: #90ee90; /* Verde claro */
+    color: #006400; /* Verde escuro */
+}
+
+.option.incorrect {
+    background-color: #f08080; /* Vermelho claro */
+    color: #8b0000; /* Vermelho escuro */
+}
+
+.translate-btn {
+    max-width: fit-content;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+    top: -15px; /* Move o botão para cima */
+}
+
+.translate-btn:hover {
+    background-color: #2980b9;
+}
+
+.correct {
+    background-color: #90ee90 !important;
+    font-size: 1.0em;
+}
+
+.incorrect {
+    background-color: #f08080 !important;
+    font-size: 1.0em;
+}
+
+.remove-btn {
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    background-color: #fff;
+    border: 1px solid #f08080;
+    color: #f08080;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 10px;
+}
+
+.remove-btn:hover {
+    background-color: #f08080;
+    color: #fff;
+}
+
+.fundo {
+    margin-top: 20px;
+    /* background-image: url('../img/pngwing.com.png'); Caminho da imagem */
+    background-size: cover; /* Faz a imagem cobrir toda a área do container */
+    background-position: center center; /* Centraliza a imagem dentro do container */
+    background-repeat: no-repeat; /* Impede a repetição da imagem */
+    z-index: 1;
+    top: 5%;
+        padding: 15px;
+}
+
+/* Bolinhas de navegação */
+.dots-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: #3498db;
+}
+
+.dot:hover {
+    background-color: #2980b9;
+}
+
+.brand-logo {
+    position: absolute; /* Posicionamento absoluto dentro do contêiner */
+    bottom: 1px; /* Distância de 20px do fundo */
+    right: 20px; /* Distância de 20px da borda direita */
+    width: 100px; /* Ajuste o tamanho da imagem da marca */
+    height: auto; /* Mantém a proporção da imagem */
+    margin: 5x; /* Adiciona 20px de espaço ao redor da imagem */
+    box-shadow: none; /* Remover a sombra, caso tenha sido aplicada */
+    transition: all 0.3s ease; /* Efeito suave para transições */
+}
+
+/* Configuracao dos botoes try again e show solution */
+#controls {
+    display: flex;
+    justify-content: space-between; /* Distribuir os grupos de botões */
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+#left-buttons,
+#center-buttons,
+#right-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre os botões */
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+
+/* Media Queries para telas menores */
+@media (max-width: 768px) {
+    .container {
+        top: 5%;
+        padding: 15px;
+        
+    }
+    
+
+    h3 {
+        font-size: 1em;
+    }
+
+    .exercise-wrapper {
+        flex-direction: column;
+    }
+
+    .exercise-container, .options-container {
+        width: 100%;
+    }
+
+    .dropbox {
+        width: 40px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    h3 {
+        font-size: 0.9em;
+    }
+
+    .dropbox {
+        width: 35px;
+        height: 18px;
+        line-height: 18px;
+        font-size: 10px;
+    }
+
+    .option {
+        font-size: 12px;
+        padding: 6px;
+    }
+}
