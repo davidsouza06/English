@@ -12,7 +12,7 @@ const exercises = [
 ] 
 
 const exercises2 = [
-    { phrase: "hang on a minute on the spot ____", answers: ["wait a moment"] },
+    { phrase: "hang on a minute ____", answers: ["wait a moment"] },
     { phrase: "on the spot ____", answers: ["immediately; without delay"] },
     { phrase: "get to grips with ____", answers: ["to begin to understand or deal with something difficult"] },
     { phrase: "go through the roof ____", answers: ["to increase or rise rapidly"] },
